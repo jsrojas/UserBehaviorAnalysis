@@ -5,7 +5,7 @@
 
 # This is to clean the memory from stored data
 rm(list = ls())
-rm(kmeans2)
+rm(dataset_part3)
 gc()
 
 # Load some required imports
@@ -31,7 +31,7 @@ options(scipen = 999)
 #--------------------------------------------------------LOAD THE DATASET FROM A CSV FILE--------------------------------------------------------
 
 # Load the dataset from a csv file
-dataset<- read.csv("/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/22-04-2019-labeled-2pm-to-4_30pm.csv")
+dataset<- read.csv("/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/04-06-2019-labeled-2pm-to-4_30pm.csv")
 
 # Set the string columns as type factor so it can be handled more easily
 df <- data.frame(dataset, stringsAsFactors = F)
@@ -59,7 +59,7 @@ colnames(labels) <- c("application_protocol", "web_service")
 df$application_name <- NULL
 df <- cbind(df, labels)
 
-write.csv(df, "/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/22-04-2019-2pm-to-4_30pm-SepparatedLabels.csv", row.names = FALSE, quote = FALSE, sep=",")
+write.csv(df, "/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/Datasets by days/22-04-2019-flows-SepparatedLabels.csv", row.names = FALSE, quote = FALSE, sep=",")
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------------------------REPLACE NAMES OF APPLICATION LABELS -----------------------------------------------------------------------------------------------------
@@ -417,6 +417,56 @@ colnames(flows_per_app) <- c("src_ip",
                              "Twitter_flows", "UbuntuONE_flows", "Unencrypted_Jabber_flows", "Unknown_flows", "VNC_flows", "Webex_flows", "WeChat_flows", 
                              "WhatsApp_flows", "WhatsAppCall_flows", "Whois-DAS_flows", "Wikipedia_flows", "WindowsUpdate_flows", "Xbox_flows", "Yahoo_flows", "YouTube_flows")
 
+# Set the column names in their order - 100 applications - 23-04-2020 - from 2pm until 4 pm
+colnames(flows_per_app) <- c("src_ip",  
+                             "104_flows","AJP_flows", "Amazon_flows", "AmazonVideo_flows", "Apple_flows", "AppleiCloud_flows", "AppleiTunes_flows", "ApplePush_flows", "AppleStore_flows",
+                             "BitTorrent_flows", "CiscoVPN_flows", "Cloudflare_flows", "DataSaver_flows", "DHCP_flows", "Direct_Download_Link_flows","DNS_flows",
+                             "Dropbox_flows", "eBay_flows","eDonkey_flows", "Facebook_flows", "FTP_DATA_flows", "Github_flows", "GMail_flows", "Google_flows", "GoogleDocs_flows",
+                             "GoogleDrive_flows", "GoogleHangoutDuo_flows", "GoogleMaps_flows", "GooglePlus_flows", "GoogleServices_flows", "H323_flows", "HotspotShield_flows",
+                             "HTTP_flows", "HTTP_Proxy_flows", "ICMP_flows", "IMAPS_flows", "IMO_flows", "Instagram_flows", "IPsec_flows",
+                             "LDAP_flows", "LinkedIn_flows", "Messenger_flows", "Microsoft_flows",  "Mining_flows", "MQTT_flows",
+                             "MS_OneDrive_flows", "MSN_flows", "MsSQL-TDS_flows", "NetBIOS_flows_flows", "NetFlix_flows", "NTP_flows", "Office365_flows",
+                             "Ookla_flows", "OpenVPN_flows", "Oracle_flows", "Pando_Media_Booster_flows", "Playstation_flows", "PlayStore_flows", "PS_VUE_flows",
+                             "QQ_flows", "QUIC_flows", "Radius_flows","RDP_flows", "RTMP_flows", "RX_flows", "Signal_flows",
+                             "SIP_flows", "Skype_flows", "SkypeCall_flows", "SMBv23_flows", "SMTP_flows", "Snapchat_flows",
+                             "SNMP_flows", "SoundCloud_flows","Spotify_flows", "SSH_flows", "Starcraft_flows", "Steam_flows", "STUN_flows",
+                             "Syslog_flows", "TeamViewer_flows", "Telegram_flows", "Teredo_flows", "TLS_flows", "Twitch_flows",
+                             "Twitter_flows", "UbuntuONE_flows", "Unencrypted_Jabber_flows", "Unknown_flows", "UPnP_flows", "VNC_flows", "Webex_flows", "WeChat_flows", 
+                             "WhatsApp_flows", "WhatsAppCall_flows", "Wikipedia_flows", "WindowsUpdate_flows", "Xbox_flows", "Yahoo_flows", "YouTube_flows")
+
+# Set the column names in their order - 99 applications - 26-04-2020 - from 2pm until 4 pm
+colnames(flows_per_app) <- c("src_ip",  
+                             "AJP_flows", "Amazon_flows", "AmazonVideo_flows", "Apple_flows", "AppleiCloud_flows", "AppleiTunes_flows", "ApplePush_flows", "AppleStore_flows",        
+                             "BitTorrent_flows", "CiscoVPN_flows", "Citrix_flows", "Cloudflare_flows", "CNN_flows", "DataSaver_flows", "DHCP_flows", "DNP3_flows",              
+                             "DNS_flows", "Dropbox_flows", "Facebook_flows", "Github_flows", "GMail_flows", "Google_flows", "GoogleDocs_flows", "GoogleDrive_flows",       
+                             "GoogleHangoutDuo_flows", "GoogleMaps_flows", "GooglePlus_flows", "GoogleServices_flows", "HTTP_flows", "HTTP_Proxy_flows", "ICMP_flows", "IMAPS_flows",             
+                             "Instagram_flows", "IPsec_flows", "LDAP_flows", "LinkedIn_flows", "Messenger_flows", "Microsoft_flows", "Mining_flows", "MQTT_flows",              
+                             "MS_OneDrive_flows", "MSN_flows", "MsSQL-TDS_flows", "MySQL_flows", "NestLogSink_flows", "NetBIOS_flows", "NetFlix_flows", "NFS_flows",               
+                             "NTP_flows", "Office365_flows", "Ookla_flows", "OpenDNS_flows", "Oracle_flows", "Playstation_flows", "PlayStore_flows", "QQ_flows",                
+                             "QUIC_flows", "Radius_flows", "RDP_flows", "RTMP_flows", "RTP_flows", "RX_flows", "sFlow_flows", "SIP_flows",               
+                             "Skype_flows", "SkypeCall_flows", "Slack_flows", "SMBv23_flows", "SMTP_flows", "SMTPS_flows", "Snapchat_flows", "SNMP_flows",              
+                             "SoundCloud_flows", "Spotify_flows", "SSH_flows", "Starcraft_flows", "STUN_flows", "Syslog_flows", "TeamViewer_flows", "Telegram_flows",          
+                             "Teredo_flows", "TikTok_flows", "TLS_flows", "Twitch_flows", "Twitter_flows", "UbuntuONE_flows", "Unencrypted_Jabber_flows", "Unknown_flows",           
+                             "Viber_flows", "VNC_flows", "Webex_flows", "WeChat_flows", "WhatsApp_flows", "WhatsAppCall_flows", "Wikipedia_flows", "WindowsUpdate_flows",     
+                             "Xbox_flows", "Yahoo_flows", "YouTube_flows")
+
+# Set the column names in their order - 98 applications - 04-06-2020 - from 2pm until 4 pm
+colnames(flows_per_app) <- c("src_ip",  
+                             "Amazon_flows", "AmazonVideo_flows", "Apple_flows", "AppleiCloud_flows", "AppleiTunes_flows", "ApplePush_flows", "AppleStore_flows",
+                             "BitTorrent_flows", "CiscoVPN_flows", "Citrix_flows", "Cloudflare_flows", "DataSaver_flows", "Deezer_flows", "DHCP_flows",
+                             "DNP3_flows", "DNS_flows", "DNSoverHTTPS_flows", "Dropbox_flows", "Facebook_flows", "FTP_DATA_flows", "Github_flows",
+                             "GMail_flows", "Google_flows", "GoogleDocs_flows", "GoogleDrive_flows", "GoogleHangoutDuo_flows", "GoogleMaps_flows", "GoogleServices_flows",
+                             "GTP_flows", "HTTP_flows", "HTTP_Proxy_flows", "IAX_flows", "ICMP_flows", "IMAPS_flows", "IMO_flows",                
+                             "Instagram_flows","IPsec_flows", "LDAP_flows", "LinkedIn_flows", "LotusNotes_flows", "Messenger_flows", "Microsoft_flows",          
+                             "MQTT_flows", "MS_OneDrive_flows", "MSN_flows", "MsSQL-TDS_flows", "NetBIOS_flows", "NetFlix_flows", "NTP_flows",                
+                             "Office365_flows", "Ookla_flows", "OpenDNS_flows", "Oracle_flows", "Pando_Media_Booster_flows", "Playstation_flows", "PlayStore_flows",          
+                             "QQ_flows", "QUIC_flows", "RDP_flows", "RTMP_flows", "RTP_flows", "RTSP_flows", "RX_flows",      
+                             "SAP_flows", "sFlow_flows", "SIP_flows", "Skype_flows", "SkypeCall_flows", "SMBv1_flows", "SMBv23_flows",             
+                             "SMTP_flows", "Snapchat_flows", "SNMP_flows", "SOMEIP_flows", "Spotify_flows", "SSDP_flows", "SSH_flows",                
+                             "Steam_flows", "STUN_flows", "Syslog_flows", "TeamViewer_flows", "Telegram_flows", "Teredo_flows", "TLS_flows",                
+                             "Twitch_flows", "Twitter_flows", "UbuntuONE_flows", "Unencrypted_Jabber_flows", "Unknown_flows", "VNC_flows", "WhatsApp_flows",           
+                             "WhatsAppCall_flows", "Whois-DAS_flows", "Wikipedia_flows", "WindowsUpdate_flows", "Xbox_flows", "Yahoo_flows", "YouTube_flows")
+
 # # Set the column names in their order -  105 applications (without WeChat and CSGO)
 # colnames(flows_per_app) <- c("src_ip", 
 #                              "104_flows", "AJP_flows", "Amazon_flows", "AmazonVideo_flows", "Apple_flows", "AppleiCloud_flows", "AppleiTunes_flows", "ApplePush_flows",
@@ -472,6 +522,10 @@ rownames(mean_octet_total_count.df) <- 1:nrow(mean_octet_total_count.df)
 # Replace NA with 0
 mean_octet_total_count.df[is.na((mean_octet_total_count.df))] <- 0
 
+head(mean_octet_total_count.df)
+
+rm(mean_octet_total_count.df)
+
 # Set the column names in their order - 105 applications (CSGO and WeChat not appear)
 colnames(mean_octet_total_count.df) <- c("104_mean_pkt_size", "AJP_mean_pkt_size", "Amazon_mean_pkt_size", "AmazonVideo_mean_pkt_size", "Apple_mean_pkt_size", "AppleiCloud_mean_pkt_size", "AppleiTunes_mean_pkt_size", "ApplePush_mean_pkt_size",
                              "AppleStore_mean_pkt_size", "BitTorrent_mean_pkt_size", "CiscoSkinny_mean_pkt_size", "CiscoVPN_mean_pkt_size", "Citrix_mean_pkt_size", "Cloudflare_mean_pkt_size", "CNN_mean_pkt_size", "DataSaver_mean_pkt_size",
@@ -502,6 +556,53 @@ colnames(mean_octet_total_count.df) <- c("Amazon_mean_pkt_size", "AmazonVideo_me
                              "Syslog_mean_pkt_size", "TeamViewer_mean_pkt_size", "Telegram_mean_pkt_size", "Teredo_mean_pkt_size", "TikTok_mean_pkt_size", "TLS_mean_pkt_size", "Tor_mean_pkt_size",
                              "Twitter_mean_pkt_size", "UbuntuONE_mean_pkt_size", "Unencrypted_Jabber_mean_pkt_size", "Unknown_mean_pkt_size", "VNC_mean_pkt_size", "Webex_mean_pkt_size", "WeChat_mean_pkt_size", 
                              "WhatsApp_mean_pkt_size", "WhatsAppCall_mean_pkt_size", "Whois-DAS_mean_pkt_size", "Wikipedia_mean_pkt_size", "WindowsUpdate_mean_pkt_size", "Xbox_mean_pkt_size", "Yahoo_mean_pkt_size", "YouTube_mean_pkt_size")
+
+# Set the column names in their order - 100 applications - 23-04-2020 - from 2pm until 4 pm
+colnames(mean_octet_total_count.df) <- c("104_mean_pkt_size","AJP_mean_pkt_size", "Amazon_mean_pkt_size", "AmazonVideo_mean_pkt_size", "Apple_mean_pkt_size", "AppleiCloud_mean_pkt_size", "AppleiTunes_mean_pkt_size", "ApplePush_mean_pkt_size", "AppleStore_mean_pkt_size",
+                             "BitTorrent_mean_pkt_size", "CiscoVPN_mean_pkt_size", "Cloudflare_mean_pkt_size", "DataSaver_mean_pkt_size", "DHCP_mean_pkt_size", "Direct_Download_Link_mean_pkt_size","DNS_mean_pkt_size",
+                             "Dropbox_mean_pkt_size", "eBay_mean_pkt_size","eDonkey_mean_pkt_size", "Facebook_mean_pkt_size", "FTP_DATA_mean_pkt_size", "Github_mean_pkt_size", "GMail_mean_pkt_size", "Google_mean_pkt_size", "GoogleDocs_mean_pkt_size",
+                             "GoogleDrive_mean_pkt_size", "GoogleHangoutDuo_mean_pkt_size", "GoogleMaps_mean_pkt_size", "GooglePlus_mean_pkt_size", "GoogleServices_mean_pkt_size", "H323_mean_pkt_size", "HotspotShield_mean_pkt_size",
+                             "HTTP_mean_pkt_size", "HTTP_Proxy_mean_pkt_size", "ICMP_mean_pkt_size", "IMAPS_mean_pkt_size", "IMO_mean_pkt_size", "Instagram_mean_pkt_size", "IPsec_mean_pkt_size",
+                             "LDAP_mean_pkt_size", "LinkedIn_mean_pkt_size", "Messenger_mean_pkt_size", "Microsoft_mean_pkt_size",  "Mining_mean_pkt_size", "MQTT_mean_pkt_size",
+                             "MS_OneDrive_mean_pkt_size", "MSN_mean_pkt_size", "MsSQL-TDS_mean_pkt_size", "NetBIOS_mean_pkt_size_mean_pkt_size", "NetFlix_mean_pkt_size", "NTP_mean_pkt_size", "Office365_mean_pkt_size",
+                             "Ookla_mean_pkt_size", "OpenVPN_mean_pkt_size", "Oracle_mean_pkt_size", "Pando_Media_Booster_mean_pkt_size", "Playstation_mean_pkt_size", "PlayStore_mean_pkt_size", "PS_VUE_mean_pkt_size",
+                             "QQ_mean_pkt_size", "QUIC_mean_pkt_size", "Radius_mean_pkt_size","RDP_mean_pkt_size", "RTMP_mean_pkt_size", "RX_mean_pkt_size", "Signal_mean_pkt_size",
+                             "SIP_mean_pkt_size", "Skype_mean_pkt_size", "SkypeCall_mean_pkt_size", "SMBv23_mean_pkt_size", "SMTP_mean_pkt_size", "Snapchat_mean_pkt_size",
+                             "SNMP_mean_pkt_size", "SoundCloud_mean_pkt_size","Spotify_mean_pkt_size", "SSH_mean_pkt_size", "Starcraft_mean_pkt_size", "Steam_mean_pkt_size", "STUN_mean_pkt_size",
+                             "Syslog_mean_pkt_size", "TeamViewer_mean_pkt_size", "Telegram_mean_pkt_size", "Teredo_mean_pkt_size", "TLS_mean_pkt_size", "Twitch_mean_pkt_size",
+                             "Twitter_mean_pkt_size", "UbuntuONE_mean_pkt_size", "Unencrypted_Jabber_mean_pkt_size", "Unknown_mean_pkt_size", "UPnP_mean_pkt_size", "VNC_mean_pkt_size", "Webex_mean_pkt_size", "WeChat_mean_pkt_size", 
+                             "WhatsApp_mean_pkt_size", "WhatsAppCall_mean_pkt_size", "Wikipedia_mean_pkt_size", "WindowsUpdate_mean_pkt_size", "Xbox_mean_pkt_size", "Yahoo_mean_pkt_size", "YouTube_mean_pkt_size")
+
+# Set the column names in their order - 99 applications - 26-04-2020 - from 2pm until 4 pm
+colnames(mean_octet_total_count.df) <- c("AJP_mean_pkt_size", "Amazon_mean_pkt_size", "AmazonVideo_mean_pkt_size", "Apple_mean_pkt_size", "AppleiCloud_mean_pkt_size", "AppleiTunes_mean_pkt_size", "ApplePush_mean_pkt_size", "AppleStore_mean_pkt_size",        
+                             "BitTorrent_mean_pkt_size", "CiscoVPN_mean_pkt_size", "Citrix_mean_pkt_size", "Cloudflare_mean_pkt_size", "CNN_mean_pkt_size", "DataSaver_mean_pkt_size", "DHCP_mean_pkt_size", "DNP3_mean_pkt_size",              
+                             "DNS_mean_pkt_size", "Dropbox_mean_pkt_size", "Facebook_mean_pkt_size", "Github_mean_pkt_size", "GMail_mean_pkt_size", "Google_mean_pkt_size", "GoogleDocs_mean_pkt_size", "GoogleDrive_mean_pkt_size",       
+                             "GoogleHangoutDuo_mean_pkt_size", "GoogleMaps_mean_pkt_size", "GooglePlus_mean_pkt_size", "GoogleServices_mean_pkt_size", "HTTP_mean_pkt_size", "HTTP_Proxy_mean_pkt_size", "ICMP_mean_pkt_size", "IMAPS_mean_pkt_size",             
+                             "Instagram_mean_pkt_size", "IPsec_mean_pkt_size", "LDAP_mean_pkt_size", "LinkedIn_mean_pkt_size", "Messenger_mean_pkt_size", "Microsoft_mean_pkt_size", "Mining_mean_pkt_size", "MQTT_mean_pkt_size",              
+                             "MS_OneDrive_mean_pkt_size", "MSN_mean_pkt_size", "MsSQL-TDS_mean_pkt_size", "MySQL_mean_pkt_size", "NestLogSink_mean_pkt_size", "NetBIOS_mean_pkt_size", "NetFlix_mean_pkt_size", "NFS_mean_pkt_size",               
+                             "NTP_mean_pkt_size", "Office365_mean_pkt_size", "Ookla_mean_pkt_size", "OpenDNS_mean_pkt_size", "Oracle_mean_pkt_size", "Playstation_mean_pkt_size", "PlayStore_mean_pkt_size", "QQ_mean_pkt_size",                
+                             "QUIC_mean_pkt_size", "Radius_mean_pkt_size", "RDP_mean_pkt_size", "RTMP_mean_pkt_size", "RTP_mean_pkt_size", "RX_mean_pkt_size", "sFlow_mean_pkt_size", "SIP_mean_pkt_size",               
+                             "Skype_mean_pkt_size", "SkypeCall_mean_pkt_size", "Slack_mean_pkt_size", "SMBv23_mean_pkt_size", "SMTP_mean_pkt_size", "SMTPS_mean_pkt_size", "Snapchat_mean_pkt_size", "SNMP_mean_pkt_size",              
+                             "SoundCloud_mean_pkt_size", "Spotify_mean_pkt_size", "SSH_mean_pkt_size", "Starcraft_mean_pkt_size", "STUN_mean_pkt_size", "Syslog_mean_pkt_size", "TeamViewer_mean_pkt_size", "Telegram_mean_pkt_size",          
+                             "Teredo_mean_pkt_size", "TikTok_mean_pkt_size", "TLS_mean_pkt_size", "Twitch_mean_pkt_size", "Twitter_mean_pkt_size", "UbuntuONE_mean_pkt_size", "Unencrypted_Jabber_mean_pkt_size", "Unknown_mean_pkt_size",           
+                             "Viber_mean_pkt_size", "VNC_mean_pkt_size", "Webex_mean_pkt_size", "WeChat_mean_pkt_size", "WhatsApp_mean_pkt_size", "WhatsAppCall_mean_pkt_size", "Wikipedia_mean_pkt_size", "WindowsUpdate_mean_pkt_size",     
+                             "Xbox_mean_pkt_size", "Yahoo_mean_pkt_size", "YouTube_mean_pkt_size")
+
+# Set the column names in their order - 98 applications - 04-06-2020 - from 2pm until 4 pm
+colnames(mean_octet_total_count.df) <- c("Amazon_mean_pkt_size", "AmazonVideo_mean_pkt_size", "Apple_mean_pkt_size", "AppleiCloud_mean_pkt_size", "AppleiTunes_mean_pkt_size", "ApplePush_mean_pkt_size", "AppleStore_mean_pkt_size",
+                             "BitTorrent_mean_pkt_size", "CiscoVPN_mean_pkt_size", "Citrix_mean_pkt_size", "Cloudflare_mean_pkt_size", "DataSaver_mean_pkt_size", "Deezer_mean_pkt_size", "DHCP_mean_pkt_size",
+                             "DNP3_mean_pkt_size", "DNS_mean_pkt_size", "DNSoverHTTPS_mean_pkt_size", "Dropbox_mean_pkt_size", "Facebook_mean_pkt_size", "FTP_DATA_mean_pkt_size", "Github_mean_pkt_size",
+                             "GMail_mean_pkt_size", "Google_mean_pkt_size", "GoogleDocs_mean_pkt_size", "GoogleDrive_mean_pkt_size", "GoogleHangoutDuo_mean_pkt_size", "GoogleMaps_mean_pkt_size", "GoogleServices_mean_pkt_size",
+                             "GTP_mean_pkt_size", "HTTP_mean_pkt_size", "HTTP_Proxy_mean_pkt_size", "IAX_mean_pkt_size", "ICMP_mean_pkt_size", "IMAPS_mean_pkt_size", "IMO_mean_pkt_size",                
+                             "Instagram_mean_pkt_size","IPsec_mean_pkt_size", "LDAP_mean_pkt_size", "LinkedIn_mean_pkt_size", "LotusNotes_mean_pkt_size", "Messenger_mean_pkt_size", "Microsoft_mean_pkt_size",          
+                             "MQTT_mean_pkt_size", "MS_OneDrive_mean_pkt_size", "MSN_mean_pkt_size", "MsSQL-TDS_mean_pkt_size", "NetBIOS_mean_pkt_size", "NetFlix_mean_pkt_size", "NTP_mean_pkt_size",                
+                             "Office365_mean_pkt_size", "Ookla_mean_pkt_size", "OpenDNS_mean_pkt_size", "Oracle_mean_pkt_size", "Pando_Media_Booster_mean_pkt_size", "Playstation_mean_pkt_size", "PlayStore_mean_pkt_size",          
+                             "QQ_mean_pkt_size", "QUIC_mean_pkt_size", "RDP_mean_pkt_size", "RTMP_mean_pkt_size", "RTP_mean_pkt_size", "RTSP_mean_pkt_size", "RX_mean_pkt_size",      
+                             "SAP_mean_pkt_size", "sFlow_mean_pkt_size", "SIP_mean_pkt_size", "Skype_mean_pkt_size", "SkypeCall_mean_pkt_size", "SMBv1_mean_pkt_size", "SMBv23_mean_pkt_size",             
+                             "SMTP_mean_pkt_size", "Snapchat_mean_pkt_size", "SNMP_mean_pkt_size", "SOMEIP_mean_pkt_size", "Spotify_mean_pkt_size", "SSDP_mean_pkt_size", "SSH_mean_pkt_size",                
+                             "Steam_mean_pkt_size", "STUN_mean_pkt_size", "Syslog_mean_pkt_size", "TeamViewer_mean_pkt_size", "Telegram_mean_pkt_size", "Teredo_mean_pkt_size", "TLS_mean_pkt_size",                
+                             "Twitch_mean_pkt_size", "Twitter_mean_pkt_size", "UbuntuONE_mean_pkt_size", "Unencrypted_Jabber_mean_pkt_size", "Unknown_mean_pkt_size", "VNC_mean_pkt_size", "WhatsApp_mean_pkt_size",           
+                             "WhatsAppCall_mean_pkt_size", "Whois-DAS_mean_pkt_size", "Wikipedia_mean_pkt_size", "WindowsUpdate_mean_pkt_size", "Xbox_mean_pkt_size", "Yahoo_mean_pkt_size", "YouTube_mean_pkt_size")
 
 # # Set the column names in their order - 105 Applications (without CSGO and WeChat)
 # colnames(mean_octet_total_count.df) <- c("104_mean_pkt_size", "AJP_mean_pkt_size", "Amazon_mean_pkt_size", "AmazonVideo_mean_pkt_size", "Apple_mean_pkt_size", "AppleiCloud_mean_pkt_size", "AppleiTunes_mean_pkt_size", "ApplePush_mean_pkt_size",
@@ -586,6 +687,53 @@ colnames(mean_flow_duration.df) <- c("Amazon_mean_flow_duration", "AmazonVideo_m
                                          "Twitter_mean_flow_duration", "UbuntuONE_mean_flow_duration", "Unencrypted_Jabber_mean_flow_duration", "Unknown_mean_flow_duration", "VNC_mean_flow_duration", "Webex_mean_flow_duration", "WeChat_mean_flow_duration", 
                                          "WhatsApp_mean_flow_duration", "WhatsAppCall_mean_flow_duration", "Whois-DAS_mean_flow_duration", "Wikipedia_mean_flow_duration", "WindowsUpdate_mean_flow_duration", "Xbox_mean_flow_duration", "Yahoo_mean_flow_duration", "YouTube_mean_flow_duration")
 
+# Set the column names in their order - 100 applications - 23-04-2020 - from 2pm until 4 pm
+colnames(mean_flow_duration.df) <- c("104_mean_flow_duration","AJP_mean_flow_duration", "Amazon_mean_flow_duration", "AmazonVideo_mean_flow_duration", "Apple_mean_flow_duration", "AppleiCloud_mean_flow_duration", "AppleiTunes_mean_flow_duration", "ApplePush_mean_flow_duration", "AppleStore_mean_flow_duration",
+                                         "BitTorrent_mean_flow_duration", "CiscoVPN_mean_flow_duration", "Cloudflare_mean_flow_duration", "DataSaver_mean_flow_duration", "DHCP_mean_flow_duration", "Direct_Download_Link_mean_flow_duration","DNS_mean_flow_duration",
+                                         "Dropbox_mean_flow_duration", "eBay_mean_flow_duration","eDonkey_mean_flow_duration", "Facebook_mean_flow_duration", "FTP_DATA_mean_flow_duration", "Github_mean_flow_duration", "GMail_mean_flow_duration", "Google_mean_flow_duration", "GoogleDocs_mean_flow_duration",
+                                         "GoogleDrive_mean_flow_duration", "GoogleHangoutDuo_mean_flow_duration", "GoogleMaps_mean_flow_duration", "GooglePlus_mean_flow_duration", "GoogleServices_mean_flow_duration", "H323_mean_flow_duration", "HotspotShield_mean_flow_duration",
+                                         "HTTP_mean_flow_duration", "HTTP_Proxy_mean_flow_duration", "ICMP_mean_flow_duration", "IMAPS_mean_flow_duration", "IMO_mean_flow_duration", "Instagram_mean_flow_duration", "IPsec_mean_flow_duration",
+                                         "LDAP_mean_flow_duration", "LinkedIn_mean_flow_duration", "Messenger_mean_flow_duration", "Microsoft_mean_flow_duration",  "Mining_mean_flow_duration", "MQTT_mean_flow_duration",
+                                         "MS_OneDrive_mean_flow_duration", "MSN_mean_flow_duration", "MsSQL-TDS_mean_flow_duration", "NetBIOS_mean_flow_duration_mean_flow_duration", "NetFlix_mean_flow_duration", "NTP_mean_flow_duration", "Office365_mean_flow_duration",
+                                         "Ookla_mean_flow_duration", "OpenVPN_mean_flow_duration", "Oracle_mean_flow_duration", "Pando_Media_Booster_mean_flow_duration", "Playstation_mean_flow_duration", "PlayStore_mean_flow_duration", "PS_VUE_mean_flow_duration",
+                                         "QQ_mean_flow_duration", "QUIC_mean_flow_duration", "Radius_mean_flow_duration","RDP_mean_flow_duration", "RTMP_mean_flow_duration", "RX_mean_flow_duration", "Signal_mean_flow_duration",
+                                         "SIP_mean_flow_duration", "Skype_mean_flow_duration", "SkypeCall_mean_flow_duration", "SMBv23_mean_flow_duration", "SMTP_mean_flow_duration", "Snapchat_mean_flow_duration",
+                                         "SNMP_mean_flow_duration", "SoundCloud_mean_flow_duration","Spotify_mean_flow_duration", "SSH_mean_flow_duration", "Starcraft_mean_flow_duration", "Steam_mean_flow_duration", "STUN_mean_flow_duration",
+                                         "Syslog_mean_flow_duration", "TeamViewer_mean_flow_duration", "Telegram_mean_flow_duration", "Teredo_mean_flow_duration", "TLS_mean_flow_duration", "Twitch_mean_flow_duration",
+                                         "Twitter_mean_flow_duration", "UbuntuONE_mean_flow_duration", "Unencrypted_Jabber_mean_flow_duration", "Unknown_mean_flow_duration", "UPnP_mean_flow_duration", "VNC_mean_flow_duration", "Webex_mean_flow_duration", "WeChat_mean_flow_duration", 
+                                         "WhatsApp_mean_flow_duration", "WhatsAppCall_mean_flow_duration", "Wikipedia_mean_flow_duration", "WindowsUpdate_mean_flow_duration", "Xbox_mean_flow_duration", "Yahoo_mean_flow_duration", "YouTube_mean_flow_duration")
+
+# Set the column names in their order - 99 applications - 26-04-2020 - from 2pm until 4 pm
+colnames(mean_flow_duration.df) <- c("AJP_mean_flow_duration", "Amazon_mean_flow_duration", "AmazonVideo_mean_flow_duration", "Apple_mean_flow_duration", "AppleiCloud_mean_flow_duration", "AppleiTunes_mean_flow_duration", "ApplePush_mean_flow_duration", "AppleStore_mean_flow_duration",        
+                             "BitTorrent_mean_flow_duration", "CiscoVPN_mean_flow_duration", "Citrix_mean_flow_duration", "Cloudflare_mean_flow_duration", "CNN_mean_flow_duration", "DataSaver_mean_flow_duration", "DHCP_mean_flow_duration", "DNP3_mean_flow_duration",              
+                             "DNS_mean_flow_duration", "Dropbox_mean_flow_duration", "Facebook_mean_flow_duration", "Github_mean_flow_duration", "GMail_mean_flow_duration", "Google_mean_flow_duration", "GoogleDocs_mean_flow_duration", "GoogleDrive_mean_flow_duration",       
+                             "GoogleHangoutDuo_mean_flow_duration", "GoogleMaps_mean_flow_duration", "GooglePlus_mean_flow_duration", "GoogleServices_mean_flow_duration", "HTTP_mean_flow_duration", "HTTP_Proxy_mean_flow_duration", "ICMP_mean_flow_duration", "IMAPS_mean_flow_duration",             
+                             "Instagram_mean_flow_duration", "IPsec_mean_flow_duration", "LDAP_mean_flow_duration", "LinkedIn_mean_flow_duration", "Messenger_mean_flow_duration", "Microsoft_mean_flow_duration", "Mining_mean_flow_duration", "MQTT_mean_flow_duration",              
+                             "MS_OneDrive_mean_flow_duration", "MSN_mean_flow_duration", "MsSQL-TDS_mean_flow_duration", "MySQL_mean_flow_duration", "NestLogSink_mean_flow_duration", "NetBIOS_mean_flow_duration", "NetFlix_mean_flow_duration", "NFS_mean_flow_duration",               
+                             "NTP_mean_flow_duration", "Office365_mean_flow_duration", "Ookla_mean_flow_duration", "OpenDNS_mean_flow_duration", "Oracle_mean_flow_duration", "Playstation_mean_flow_duration", "PlayStore_mean_flow_duration", "QQ_mean_flow_duration",                
+                             "QUIC_mean_flow_duration", "Radius_mean_flow_duration", "RDP_mean_flow_duration", "RTMP_mean_flow_duration", "RTP_mean_flow_duration", "RX_mean_flow_duration", "sFlow_mean_flow_duration", "SIP_mean_flow_duration",               
+                             "Skype_mean_flow_duration", "SkypeCall_mean_flow_duration", "Slack_mean_flow_duration", "SMBv23_mean_flow_duration", "SMTP_mean_flow_duration", "SMTPS_mean_flow_duration", "Snapchat_mean_flow_duration", "SNMP_mean_flow_duration",              
+                             "SoundCloud_mean_flow_duration", "Spotify_mean_flow_duration", "SSH_mean_flow_duration", "Starcraft_mean_flow_duration", "STUN_mean_flow_duration", "Syslog_mean_flow_duration", "TeamViewer_mean_flow_duration", "Telegram_mean_flow_duration",          
+                             "Teredo_mean_flow_duration", "TikTok_mean_flow_duration", "TLS_mean_flow_duration", "Twitch_mean_flow_duration", "Twitter_mean_flow_duration", "UbuntuONE_mean_flow_duration", "Unencrypted_Jabber_mean_flow_duration", "Unknown_mean_flow_duration",           
+                             "Viber_mean_flow_duration", "VNC_mean_flow_duration", "Webex_mean_flow_duration", "WeChat_mean_flow_duration", "WhatsApp_mean_flow_duration", "WhatsAppCall_mean_flow_duration", "Wikipedia_mean_flow_duration", "WindowsUpdate_mean_flow_duration",     
+                             "Xbox_mean_flow_duration", "Yahoo_mean_flow_duration", "YouTube_mean_flow_duration")
+
+# Set the column names in their order - 98 applications - 04-06-2020 - from 2pm until 4 pm
+colnames(mean_flow_duration.df) <- c("Amazon_mean_flow_duration", "AmazonVideo_mean_flow_duration", "Apple_mean_flow_duration", "AppleiCloud_mean_flow_duration", "AppleiTunes_mean_flow_duration", "ApplePush_mean_flow_duration", "AppleStore_mean_flow_duration",
+                             "BitTorrent_mean_flow_duration", "CiscoVPN_mean_flow_duration", "Citrix_mean_flow_duration", "Cloudflare_mean_flow_duration", "DataSaver_mean_flow_duration", "Deezer_mean_flow_duration", "DHCP_mean_flow_duration",
+                             "DNP3_mean_flow_duration", "DNS_mean_flow_duration", "DNSoverHTTPS_mean_flow_duration", "Dropbox_mean_flow_duration", "Facebook_mean_flow_duration", "FTP_DATA_mean_flow_duration", "Github_mean_flow_duration",
+                             "GMail_mean_flow_duration", "Google_mean_flow_duration", "GoogleDocs_mean_flow_duration", "GoogleDrive_mean_flow_duration", "GoogleHangoutDuo_mean_flow_duration", "GoogleMaps_mean_flow_duration", "GoogleServices_mean_flow_duration",
+                             "GTP_mean_flow_duration", "HTTP_mean_flow_duration", "HTTP_Proxy_mean_flow_duration", "IAX_mean_flow_duration", "ICMP_mean_flow_duration", "IMAPS_mean_flow_duration", "IMO_mean_flow_duration",                
+                             "Instagram_mean_flow_duration","IPsec_mean_flow_duration", "LDAP_mean_flow_duration", "LinkedIn_mean_flow_duration", "LotusNotes_mean_flow_duration", "Messenger_mean_flow_duration", "Microsoft_mean_flow_duration",          
+                             "MQTT_mean_flow_duration", "MS_OneDrive_mean_flow_duration", "MSN_mean_flow_duration", "MsSQL-TDS_mean_flow_duration", "NetBIOS_mean_flow_duration", "NetFlix_mean_flow_duration", "NTP_mean_flow_duration",                
+                             "Office365_mean_flow_duration", "Ookla_mean_flow_duration", "OpenDNS_mean_flow_duration", "Oracle_mean_flow_duration", "Pando_Media_Booster_mean_flow_duration", "Playstation_mean_flow_duration", "PlayStore_mean_flow_duration",          
+                             "QQ_mean_flow_duration", "QUIC_mean_flow_duration", "RDP_mean_flow_duration", "RTMP_mean_flow_duration", "RTP_mean_flow_duration", "RTSP_mean_flow_duration", "RX_mean_flow_duration",      
+                             "SAP_mean_flow_duration", "sFlow_mean_flow_duration", "SIP_mean_flow_duration", "Skype_mean_flow_duration", "SkypeCall_mean_flow_duration", "SMBv1_mean_flow_duration", "SMBv23_mean_flow_duration",             
+                             "SMTP_mean_flow_duration", "Snapchat_mean_flow_duration", "SNMP_mean_flow_duration", "SOMEIP_mean_flow_duration", "Spotify_mean_flow_duration", "SSDP_mean_flow_duration", "SSH_mean_flow_duration",                
+                             "Steam_mean_flow_duration", "STUN_mean_flow_duration", "Syslog_mean_flow_duration", "TeamViewer_mean_flow_duration", "Telegram_mean_flow_duration", "Teredo_mean_flow_duration", "TLS_mean_flow_duration",                
+                             "Twitch_mean_flow_duration", "Twitter_mean_flow_duration", "UbuntuONE_mean_flow_duration", "Unencrypted_Jabber_mean_flow_duration", "Unknown_mean_flow_duration", "VNC_mean_flow_duration", "WhatsApp_mean_flow_duration",           
+                             "WhatsAppCall_mean_flow_duration", "Whois-DAS_mean_flow_duration", "Wikipedia_mean_flow_duration", "WindowsUpdate_mean_flow_duration", "Xbox_mean_flow_duration", "Yahoo_mean_flow_duration", "YouTube_mean_flow_duration")
+
 # # Set the column names in their order - 105 applications (without CSGO and WeChat)
 # colnames(mean_flow_duration.df) <- c("104_mean_flow_duration", "AJP_mean_flow_duration", "Amazon_mean_flow_duration", "AmazonVideo_mean_flow_duration", "Apple_mean_flow_duration", "AppleiCloud_mean_flow_duration", "AppleiTunes_mean_flow_duration", "ApplePush_mean_flow_duration",
 #                                      "AppleStore_mean_flow_duration", "BitTorrent_mean_flow_duration", "CiscoSkinny_mean_flow_duration", "CiscoVPN_mean_flow_duration", "Citrix_mean_flow_duration", "Cloudflare_mean_flow_duration", "CNN_mean_flow_duration", "DataSaver_mean_flow_duration",
@@ -639,14 +787,14 @@ final_dataset[, c("src_ip_numeric")] <- unique(df[, c("src_ip_numeric")])
 # Order the rows in ascending order based on the value of the src ip decimal number
 final_dataset <- final_dataset[order(final_dataset[,c("src_ip_numeric")]),]
 
-# Reorder the columns so the decimal form of the src ip is first - with 107 apps
+# Reorder the columns so the decimal form of the src ip is first
 final_dataset <- subset(final_dataset, select=c(299,1:298))
 
 # Reorder the columns so the decimal form of the src ip is first - with 49 apps
 # final_dataset <- subset(final_dataset, select=c(149,1:148))
 
 
-write.csv(final_dataset, "/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/Users-behavior-dataset-22-04-2019-2pm-to-4_30pm.csv", row.names = FALSE, quote = FALSE, sep=",")
+write.csv(final_dataset, "/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/Users-behavior-dataset-26-04-2019-2pm-to-4_30pm.csv", row.names = FALSE, quote = FALSE, sep=",")
 #---------------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------OBTAINING THE BEST NUMBER OF CLUSTERS--------------------------------------------
 rm(dataset)
@@ -657,34 +805,37 @@ rm(mean_octet_total_count.df)
 rm(mean_flow_duration.df)
 gc()
 
-test_data <- read.csv("/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/Comparison of different days in the same time interval/22-04-2019-2pm_4_30pm/Users-behavior-dataset-22-04-2019-2pm-to-4_30pm.csv")
+test_data <- final_dataset
+rm(final_dataset)
+test_data <- read.csv("/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/Comparison of different days in the same time interval/04-06-2019-2pm-4_30pm/Users-behavior-dataset-04-06-2019-2pm-to-4_30pm.csv")
 
 final_dataset$src_ip <- NULL
 test_data$src_ip <- NULL
+test_data$src_ip_numeric <- NULL
 df_clusters <- scale(test_data)
 rm(df_clusters_noNA)
 
 # Elbow method . Hierarchical Clustering
 fviz_nbclust(test_data, hcut, method = "wss", k.max = 20) +
   #geom_vline(xintercept = 4, linetype = 2)+
-  labs(subtitle = "Elbow method - Hierarchical clustering - 22-04-2019-2pm-to-4_30pm_OTT-Apps-Only")
+  labs(subtitle = "Elbow method - Hierarchical clustering - 04-06-2019-2pm-to-4_30pm")
 
 # Elbow method - Kmeans
 fviz_nbclust(test_data, kmeans, method = "wss", k.max = 20) +
   #geom_vline(xintercept = 4, linetype = 2)+
-  labs(subtitle = "Elbow method - Kmeans - 22-04-2019-2pm-to-4_30pm_OTT-Apps-Only")
+  labs(subtitle = "Elbow method - Kmeans - 04-06-2019-2pm-to-4_30pm")
 
 # Silhouette method - Kmeans
 fviz_nbclust(test_data, kmeans, method = "silhouette", k.max = 20) +
-  labs(subtitle = "Silhouette method - Kmeans - 22-04-2019-2pm-to-4_30pm_OTT-Apps-Only")
+  labs(subtitle = "Silhouette method - Kmeans - 04-06-2019-2pm-to-4_30pm")
 
 # Silhouette method - Hierarchichal Clustering 
 fviz_nbclust(test_data, hcut, method = "silhouette", k.max = 20)+
-  labs(subtitle = "Silhouette method - Hierarchical Clustering - 22-04-2019-2pm-to-4_30pm_OTT-Apps-Only")
+  labs(subtitle = "Silhouette method - Hierarchical Clustering - 04-06-2019-2pm-to-4_30pm")
 
 # Gap statistic method - Kmeans
 set.seed(123)
-fviz_nbclust(final_dataset, kmeans, nstart = 25,  method = "gap_stat", k.max = 10, nboot = 50)+
+fviz_nbclust(test_data, kmeans, nstart = 25,  method = "gap_stat", k.max = 10, nboot = 50)+
   labs(subtitle = "Gap statistic method- Kmeans - Sample_FinalDataset - Kmax= 10 clusters")
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -730,4 +881,4 @@ fviz_cluster(db, data = df, stand = FALSE,
              ellipse = FALSE, show.clust.cent = FALSE,
              geom = "point",palette = "jco", ggtheme = theme_classic())
 #----------------------------------------------------------------------------------------------------------------------------------------------------------
-
+  
