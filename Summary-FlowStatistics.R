@@ -182,7 +182,7 @@ df %>% count(web_service)
 
 #-----------------------------------------------------OBTAIN THE MEAN OCTET TOTAL COUNT--------------------------------------------------------------------------
 # Obtain the average octet total count based on source IP address and application name
-mean_octet_total_count.df <- as.data.frame(tapply(df$octetTotalCount, list(df$src_ip, df$web_service), mean))
+mean_octet_total_count.df <- as.data.frame(tapply(df$octetTotalCount, list(df$src_ip, df$web_service), mean)) # REVISAR SI ES MEJOR USAR LA COLUMNA avg_ps!!!!!
 # Set the row indexes as numbers
 rownames(mean_octet_total_count.df) <- 1:nrow(mean_octet_total_count.df)
 # Replace NA with 0
@@ -192,87 +192,87 @@ head(mean_octet_total_count.df)
 
 
 # Set the column names in their order - 99 applications - 22-04-2020 - from 2pm until 4 pm
-colnames(mean_octet_total_count.df) <- c("Amazon_mean_pkt_size", "AmazonVideo_mean_pkt_size", "Apple_mean_pkt_size", "AppleiCloud_mean_pkt_size", "AppleiTunes_mean_pkt_size", "ApplePush_mean_pkt_size", "AppleStore_mean_pkt_size",
-                             "BitTorrent_mean_pkt_size", "CiscoVPN_mean_pkt_size", "Cloudflare_mean_pkt_size", "DataSaver_mean_pkt_size", "DHCP_mean_pkt_size", "DNS_mean_pkt_size", "DNSoverHTTPS_mean_pkt_size",
-                             "Dropbox_mean_pkt_size", "eBay_mean_pkt_size", "Facebook_mean_pkt_size", "Github_mean_pkt_size", "GMail_mean_pkt_size", "Google_mean_pkt_size", "GoogleDocs_mean_pkt_size",
-                             "GoogleDrive_mean_pkt_size", "GoogleHangoutDuo_mean_pkt_size", "GoogleMaps_mean_pkt_size", "GooglePlus_mean_pkt_size", "GoogleServices_mean_pkt_size", "H323_mean_pkt_size", "HotspotShield_mean_pkt_size",
-                             "HTTP_mean_pkt_size", "HTTP_Proxy_mean_pkt_size", "ICMP_mean_pkt_size", "IMAPS_mean_pkt_size", "IMO_mean_pkt_size", "Instagram_mean_pkt_size", "IPsec_mean_pkt_size",
-                             "IRC_mean_pkt_size", "LDAP_mean_pkt_size", "LinkedIn_mean_pkt_size", "Messenger_mean_pkt_size", "Microsoft_mean_pkt_size",  "Mining_mean_pkt_size", "MQTT_mean_pkt_size",
-                             "MS_OneDrive_mean_pkt_size", "MSN_mean_pkt_size", "MsSQL-TDS_mean_pkt_size", "NetBIOS_mean_pkt_size_mean_pkt_size", "NetFlix_mean_pkt_size", "NTP_mean_pkt_size", "Office365_mean_pkt_size",
-                             "Ookla_mean_pkt_size", "OpenDNS_mean_pkt_size", "Oracle_mean_pkt_size", "Pando_Media_Booster_mean_pkt_size", "Playstation_mean_pkt_size", "PlayStore_mean_pkt_size", "PS_VUE_mean_pkt_size",
-                             "QQ_mean_pkt_size", "QUIC_mean_pkt_size", "RDP_mean_pkt_size", "RTMP_mean_pkt_size", "RTP_mean_pkt_size", "RX_mean_pkt_size", "Signal_mean_pkt_size",
-                             "SIP_mean_pkt_size", "Skype_mean_pkt_size", "SkypeCall_mean_pkt_size", "Slack_mean_pkt_size", "SMBv23_mean_pkt_size", "SMTP_mean_pkt_size", "Snapchat_mean_pkt_size",
-                             "SNMP_mean_pkt_size", "Spotify_mean_pkt_size", "SSDP_mean_pkt_size", "SSH_mean_pkt_size", "Starcraft_mean_pkt_size", "Steam_mean_pkt_size", "STUN_mean_pkt_size",
-                             "Syslog_mean_pkt_size", "TeamViewer_mean_pkt_size", "Telegram_mean_pkt_size", "Teredo_mean_pkt_size", "TikTok_mean_pkt_size", "TLS_mean_pkt_size", "Tor_mean_pkt_size",
-                             "Twitter_mean_pkt_size", "UbuntuONE_mean_pkt_size", "Unencrypted_Jabber_mean_pkt_size", "Unknown_mean_pkt_size", "VNC_mean_pkt_size", "Webex_mean_pkt_size", "WeChat_mean_pkt_size", 
-                             "WhatsApp_mean_pkt_size", "WhatsAppCall_mean_pkt_size", "Whois-DAS_mean_pkt_size", "Wikipedia_mean_pkt_size", "WindowsUpdate_mean_pkt_size", "Xbox_mean_pkt_size", "Yahoo_mean_pkt_size", "YouTube_mean_pkt_size")
+colnames(mean_octet_total_count.df) <- c("Amazon_data_occupation", "AmazonVideo_data_occupation", "Apple_data_occupation", "AppleiCloud_data_occupation", "AppleiTunes_data_occupation", "ApplePush_data_occupation", "AppleStore_data_occupation",
+                             "BitTorrent_data_occupation", "CiscoVPN_data_occupation", "Cloudflare_data_occupation", "DataSaver_data_occupation", "DHCP_data_occupation", "DNS_data_occupation", "DNSoverHTTPS_data_occupation",
+                             "Dropbox_data_occupation", "eBay_data_occupation", "Facebook_data_occupation", "Github_data_occupation", "GMail_data_occupation", "Google_data_occupation", "GoogleDocs_data_occupation",
+                             "GoogleDrive_data_occupation", "GoogleHangoutDuo_data_occupation", "GoogleMaps_data_occupation", "GooglePlus_data_occupation", "GoogleServices_data_occupation", "H323_data_occupation", "HotspotShield_data_occupation",
+                             "HTTP_data_occupation", "HTTP_Proxy_data_occupation", "ICMP_data_occupation", "IMAPS_data_occupation", "IMO_data_occupation", "Instagram_data_occupation", "IPsec_data_occupation",
+                             "IRC_data_occupation", "LDAP_data_occupation", "LinkedIn_data_occupation", "Messenger_data_occupation", "Microsoft_data_occupation",  "Mining_data_occupation", "MQTT_data_occupation",
+                             "MS_OneDrive_data_occupation", "MSN_data_occupation", "MsSQL-TDS_data_occupation", "NetBIOS_data_occupation_data_occupation", "NetFlix_data_occupation", "NTP_data_occupation", "Office365_data_occupation",
+                             "Ookla_data_occupation", "OpenDNS_data_occupation", "Oracle_data_occupation", "Pando_Media_Booster_data_occupation", "Playstation_data_occupation", "PlayStore_data_occupation", "PS_VUE_data_occupation",
+                             "QQ_data_occupation", "QUIC_data_occupation", "RDP_data_occupation", "RTMP_data_occupation", "RTP_data_occupation", "RX_data_occupation", "Signal_data_occupation",
+                             "SIP_data_occupation", "Skype_data_occupation", "SkypeCall_data_occupation", "Slack_data_occupation", "SMBv23_data_occupation", "SMTP_data_occupation", "Snapchat_data_occupation",
+                             "SNMP_data_occupation", "Spotify_data_occupation", "SSDP_data_occupation", "SSH_data_occupation", "Starcraft_data_occupation", "Steam_data_occupation", "STUN_data_occupation",
+                             "Syslog_data_occupation", "TeamViewer_data_occupation", "Telegram_data_occupation", "Teredo_data_occupation", "TikTok_data_occupation", "TLS_data_occupation", "Tor_data_occupation",
+                             "Twitter_data_occupation", "UbuntuONE_data_occupation", "Unencrypted_Jabber_data_occupation", "Unknown_data_occupation", "VNC_data_occupation", "Webex_data_occupation", "WeChat_data_occupation", 
+                             "WhatsApp_data_occupation", "WhatsAppCall_data_occupation", "Whois-DAS_data_occupation", "Wikipedia_data_occupation", "WindowsUpdate_data_occupation", "Xbox_data_occupation", "Yahoo_data_occupation", "YouTube_data_occupation")
 
 # Set the column names in their order - 100 applications - 23-04-2020 - from 2pm until 4 pm
-colnames(mean_octet_total_count.df) <- c("104_mean_pkt_size","AJP_mean_pkt_size", "Amazon_mean_pkt_size", "AmazonVideo_mean_pkt_size", "Apple_mean_pkt_size", "AppleiCloud_mean_pkt_size", "AppleiTunes_mean_pkt_size", "ApplePush_mean_pkt_size", "AppleStore_mean_pkt_size",
-                             "BitTorrent_mean_pkt_size", "CiscoVPN_mean_pkt_size", "Cloudflare_mean_pkt_size", "DataSaver_mean_pkt_size", "DHCP_mean_pkt_size", "Direct_Download_Link_mean_pkt_size","DNS_mean_pkt_size",
-                             "Dropbox_mean_pkt_size", "eBay_mean_pkt_size","eDonkey_mean_pkt_size", "Facebook_mean_pkt_size", "FTP_DATA_mean_pkt_size", "Github_mean_pkt_size", "GMail_mean_pkt_size", "Google_mean_pkt_size", "GoogleDocs_mean_pkt_size",
-                             "GoogleDrive_mean_pkt_size", "GoogleHangoutDuo_mean_pkt_size", "GoogleMaps_mean_pkt_size", "GooglePlus_mean_pkt_size", "GoogleServices_mean_pkt_size", "H323_mean_pkt_size", "HotspotShield_mean_pkt_size",
-                             "HTTP_mean_pkt_size", "HTTP_Proxy_mean_pkt_size", "ICMP_mean_pkt_size", "IMAPS_mean_pkt_size", "IMO_mean_pkt_size", "Instagram_mean_pkt_size", "IPsec_mean_pkt_size",
-                             "LDAP_mean_pkt_size", "LinkedIn_mean_pkt_size", "Messenger_mean_pkt_size", "Microsoft_mean_pkt_size",  "Mining_mean_pkt_size", "MQTT_mean_pkt_size",
-                             "MS_OneDrive_mean_pkt_size", "MSN_mean_pkt_size", "MsSQL-TDS_mean_pkt_size", "NetBIOS_mean_pkt_size_mean_pkt_size", "NetFlix_mean_pkt_size", "NTP_mean_pkt_size", "Office365_mean_pkt_size",
-                             "Ookla_mean_pkt_size", "OpenVPN_mean_pkt_size", "Oracle_mean_pkt_size", "Pando_Media_Booster_mean_pkt_size", "Playstation_mean_pkt_size", "PlayStore_mean_pkt_size", "PS_VUE_mean_pkt_size",
-                             "QQ_mean_pkt_size", "QUIC_mean_pkt_size", "Radius_mean_pkt_size","RDP_mean_pkt_size", "RTMP_mean_pkt_size", "RX_mean_pkt_size", "Signal_mean_pkt_size",
-                             "SIP_mean_pkt_size", "Skype_mean_pkt_size", "SkypeCall_mean_pkt_size", "SMBv23_mean_pkt_size", "SMTP_mean_pkt_size", "Snapchat_mean_pkt_size",
-                             "SNMP_mean_pkt_size", "SoundCloud_mean_pkt_size","Spotify_mean_pkt_size", "SSH_mean_pkt_size", "Starcraft_mean_pkt_size", "Steam_mean_pkt_size", "STUN_mean_pkt_size",
-                             "Syslog_mean_pkt_size", "TeamViewer_mean_pkt_size", "Telegram_mean_pkt_size", "Teredo_mean_pkt_size", "TLS_mean_pkt_size", "Twitch_mean_pkt_size",
-                             "Twitter_mean_pkt_size", "UbuntuONE_mean_pkt_size", "Unencrypted_Jabber_mean_pkt_size", "Unknown_mean_pkt_size", "UPnP_mean_pkt_size", "VNC_mean_pkt_size", "Webex_mean_pkt_size", "WeChat_mean_pkt_size", 
-                             "WhatsApp_mean_pkt_size", "WhatsAppCall_mean_pkt_size", "Wikipedia_mean_pkt_size", "WindowsUpdate_mean_pkt_size", "Xbox_mean_pkt_size", "Yahoo_mean_pkt_size", "YouTube_mean_pkt_size")
+colnames(mean_octet_total_count.df) <- c("104_data_occupation","AJP_data_occupation", "Amazon_data_occupation", "AmazonVideo_data_occupation", "Apple_data_occupation", "AppleiCloud_data_occupation", "AppleiTunes_data_occupation", "ApplePush_data_occupation", "AppleStore_data_occupation",
+                             "BitTorrent_data_occupation", "CiscoVPN_data_occupation", "Cloudflare_data_occupation", "DataSaver_data_occupation", "DHCP_data_occupation", "Direct_Download_Link_data_occupation","DNS_data_occupation",
+                             "Dropbox_data_occupation", "eBay_data_occupation","eDonkey_data_occupation", "Facebook_data_occupation", "FTP_DATA_data_occupation", "Github_data_occupation", "GMail_data_occupation", "Google_data_occupation", "GoogleDocs_data_occupation",
+                             "GoogleDrive_data_occupation", "GoogleHangoutDuo_data_occupation", "GoogleMaps_data_occupation", "GooglePlus_data_occupation", "GoogleServices_data_occupation", "H323_data_occupation", "HotspotShield_data_occupation",
+                             "HTTP_data_occupation", "HTTP_Proxy_data_occupation", "ICMP_data_occupation", "IMAPS_data_occupation", "IMO_data_occupation", "Instagram_data_occupation", "IPsec_data_occupation",
+                             "LDAP_data_occupation", "LinkedIn_data_occupation", "Messenger_data_occupation", "Microsoft_data_occupation",  "Mining_data_occupation", "MQTT_data_occupation",
+                             "MS_OneDrive_data_occupation", "MSN_data_occupation", "MsSQL-TDS_data_occupation", "NetBIOS_data_occupation_data_occupation", "NetFlix_data_occupation", "NTP_data_occupation", "Office365_data_occupation",
+                             "Ookla_data_occupation", "OpenVPN_data_occupation", "Oracle_data_occupation", "Pando_Media_Booster_data_occupation", "Playstation_data_occupation", "PlayStore_data_occupation", "PS_VUE_data_occupation",
+                             "QQ_data_occupation", "QUIC_data_occupation", "Radius_data_occupation","RDP_data_occupation", "RTMP_data_occupation", "RX_data_occupation", "Signal_data_occupation",
+                             "SIP_data_occupation", "Skype_data_occupation", "SkypeCall_data_occupation", "SMBv23_data_occupation", "SMTP_data_occupation", "Snapchat_data_occupation",
+                             "SNMP_data_occupation", "SoundCloud_data_occupation","Spotify_data_occupation", "SSH_data_occupation", "Starcraft_data_occupation", "Steam_data_occupation", "STUN_data_occupation",
+                             "Syslog_data_occupation", "TeamViewer_data_occupation", "Telegram_data_occupation", "Teredo_data_occupation", "TLS_data_occupation", "Twitch_data_occupation",
+                             "Twitter_data_occupation", "UbuntuONE_data_occupation", "Unencrypted_Jabber_data_occupation", "Unknown_data_occupation", "UPnP_data_occupation", "VNC_data_occupation", "Webex_data_occupation", "WeChat_data_occupation", 
+                             "WhatsApp_data_occupation", "WhatsAppCall_data_occupation", "Wikipedia_data_occupation", "WindowsUpdate_data_occupation", "Xbox_data_occupation", "Yahoo_data_occupation", "YouTube_data_occupation")
 
 # Set the column names in their order - 99 applications - 26-04-2020 - from 2pm until 4 pm
-colnames(mean_octet_total_count.df) <- c("AJP_mean_pkt_size", "Amazon_mean_pkt_size", "AmazonVideo_mean_pkt_size", "Apple_mean_pkt_size", "AppleiCloud_mean_pkt_size", "AppleiTunes_mean_pkt_size", "ApplePush_mean_pkt_size", "AppleStore_mean_pkt_size",        
-                             "BitTorrent_mean_pkt_size", "CiscoVPN_mean_pkt_size", "Citrix_mean_pkt_size", "Cloudflare_mean_pkt_size", "CNN_mean_pkt_size", "DataSaver_mean_pkt_size", "DHCP_mean_pkt_size", "DNP3_mean_pkt_size",              
-                             "DNS_mean_pkt_size", "Dropbox_mean_pkt_size", "Facebook_mean_pkt_size", "Github_mean_pkt_size", "GMail_mean_pkt_size", "Google_mean_pkt_size", "GoogleDocs_mean_pkt_size", "GoogleDrive_mean_pkt_size",       
-                             "GoogleHangoutDuo_mean_pkt_size", "GoogleMaps_mean_pkt_size", "GooglePlus_mean_pkt_size", "GoogleServices_mean_pkt_size", "HTTP_mean_pkt_size", "HTTP_Proxy_mean_pkt_size", "ICMP_mean_pkt_size", "IMAPS_mean_pkt_size",             
-                             "Instagram_mean_pkt_size", "IPsec_mean_pkt_size", "LDAP_mean_pkt_size", "LinkedIn_mean_pkt_size", "Messenger_mean_pkt_size", "Microsoft_mean_pkt_size", "Mining_mean_pkt_size", "MQTT_mean_pkt_size",              
-                             "MS_OneDrive_mean_pkt_size", "MSN_mean_pkt_size", "MsSQL-TDS_mean_pkt_size", "MySQL_mean_pkt_size", "NestLogSink_mean_pkt_size", "NetBIOS_mean_pkt_size", "NetFlix_mean_pkt_size", "NFS_mean_pkt_size",               
-                             "NTP_mean_pkt_size", "Office365_mean_pkt_size", "Ookla_mean_pkt_size", "OpenDNS_mean_pkt_size", "Oracle_mean_pkt_size", "Playstation_mean_pkt_size", "PlayStore_mean_pkt_size", "QQ_mean_pkt_size",                
-                             "QUIC_mean_pkt_size", "Radius_mean_pkt_size", "RDP_mean_pkt_size", "RTMP_mean_pkt_size", "RTP_mean_pkt_size", "RX_mean_pkt_size", "sFlow_mean_pkt_size", "SIP_mean_pkt_size",               
-                             "Skype_mean_pkt_size", "SkypeCall_mean_pkt_size", "Slack_mean_pkt_size", "SMBv23_mean_pkt_size", "SMTP_mean_pkt_size", "SMTPS_mean_pkt_size", "Snapchat_mean_pkt_size", "SNMP_mean_pkt_size",              
-                             "SoundCloud_mean_pkt_size", "Spotify_mean_pkt_size", "SSH_mean_pkt_size", "Starcraft_mean_pkt_size", "STUN_mean_pkt_size", "Syslog_mean_pkt_size", "TeamViewer_mean_pkt_size", "Telegram_mean_pkt_size",          
-                             "Teredo_mean_pkt_size", "TikTok_mean_pkt_size", "TLS_mean_pkt_size", "Twitch_mean_pkt_size", "Twitter_mean_pkt_size", "UbuntuONE_mean_pkt_size", "Unencrypted_Jabber_mean_pkt_size", "Unknown_mean_pkt_size",           
-                             "Viber_mean_pkt_size", "VNC_mean_pkt_size", "Webex_mean_pkt_size", "WeChat_mean_pkt_size", "WhatsApp_mean_pkt_size", "WhatsAppCall_mean_pkt_size", "Wikipedia_mean_pkt_size", "WindowsUpdate_mean_pkt_size",     
-                             "Xbox_mean_pkt_size", "Yahoo_mean_pkt_size", "YouTube_mean_pkt_size")
+colnames(mean_octet_total_count.df) <- c("AJP_data_occupation", "Amazon_data_occupation", "AmazonVideo_data_occupation", "Apple_data_occupation", "AppleiCloud_data_occupation", "AppleiTunes_data_occupation", "ApplePush_data_occupation", "AppleStore_data_occupation",        
+                             "BitTorrent_data_occupation", "CiscoVPN_data_occupation", "Citrix_data_occupation", "Cloudflare_data_occupation", "CNN_data_occupation", "DataSaver_data_occupation", "DHCP_data_occupation", "DNP3_data_occupation",              
+                             "DNS_data_occupation", "Dropbox_data_occupation", "Facebook_data_occupation", "Github_data_occupation", "GMail_data_occupation", "Google_data_occupation", "GoogleDocs_data_occupation", "GoogleDrive_data_occupation",       
+                             "GoogleHangoutDuo_data_occupation", "GoogleMaps_data_occupation", "GooglePlus_data_occupation", "GoogleServices_data_occupation", "HTTP_data_occupation", "HTTP_Proxy_data_occupation", "ICMP_data_occupation", "IMAPS_data_occupation",             
+                             "Instagram_data_occupation", "IPsec_data_occupation", "LDAP_data_occupation", "LinkedIn_data_occupation", "Messenger_data_occupation", "Microsoft_data_occupation", "Mining_data_occupation", "MQTT_data_occupation",              
+                             "MS_OneDrive_data_occupation", "MSN_data_occupation", "MsSQL-TDS_data_occupation", "MySQL_data_occupation", "NestLogSink_data_occupation", "NetBIOS_data_occupation", "NetFlix_data_occupation", "NFS_data_occupation",               
+                             "NTP_data_occupation", "Office365_data_occupation", "Ookla_data_occupation", "OpenDNS_data_occupation", "Oracle_data_occupation", "Playstation_data_occupation", "PlayStore_data_occupation", "QQ_data_occupation",                
+                             "QUIC_data_occupation", "Radius_data_occupation", "RDP_data_occupation", "RTMP_data_occupation", "RTP_data_occupation", "RX_data_occupation", "sFlow_data_occupation", "SIP_data_occupation",               
+                             "Skype_data_occupation", "SkypeCall_data_occupation", "Slack_data_occupation", "SMBv23_data_occupation", "SMTP_data_occupation", "SMTPS_data_occupation", "Snapchat_data_occupation", "SNMP_data_occupation",              
+                             "SoundCloud_data_occupation", "Spotify_data_occupation", "SSH_data_occupation", "Starcraft_data_occupation", "STUN_data_occupation", "Syslog_data_occupation", "TeamViewer_data_occupation", "Telegram_data_occupation",          
+                             "Teredo_data_occupation", "TikTok_data_occupation", "TLS_data_occupation", "Twitch_data_occupation", "Twitter_data_occupation", "UbuntuONE_data_occupation", "Unencrypted_Jabber_data_occupation", "Unknown_data_occupation",           
+                             "Viber_data_occupation", "VNC_data_occupation", "Webex_data_occupation", "WeChat_data_occupation", "WhatsApp_data_occupation", "WhatsAppCall_data_occupation", "Wikipedia_data_occupation", "WindowsUpdate_data_occupation",     
+                             "Xbox_data_occupation", "Yahoo_data_occupation", "YouTube_data_occupation")
 
 # Set the column names in their order - 98 applications - 04-06-2020 - from 2pm until 4 pm
-colnames(mean_octet_total_count.df) <- c("Amazon_mean_pkt_size", "AmazonVideo_mean_pkt_size", "Apple_mean_pkt_size", "AppleiCloud_mean_pkt_size", "AppleiTunes_mean_pkt_size", "ApplePush_mean_pkt_size", "AppleStore_mean_pkt_size",
-                             "BitTorrent_mean_pkt_size", "CiscoVPN_mean_pkt_size", "Citrix_mean_pkt_size", "Cloudflare_mean_pkt_size", "DataSaver_mean_pkt_size", "Deezer_mean_pkt_size", "DHCP_mean_pkt_size",
-                             "DNP3_mean_pkt_size", "DNS_mean_pkt_size", "DNSoverHTTPS_mean_pkt_size", "Dropbox_mean_pkt_size", "Facebook_mean_pkt_size", "FTP_DATA_mean_pkt_size", "Github_mean_pkt_size",
-                             "GMail_mean_pkt_size", "Google_mean_pkt_size", "GoogleDocs_mean_pkt_size", "GoogleDrive_mean_pkt_size", "GoogleHangoutDuo_mean_pkt_size", "GoogleMaps_mean_pkt_size", "GoogleServices_mean_pkt_size",
-                             "GTP_mean_pkt_size", "HTTP_mean_pkt_size", "HTTP_Proxy_mean_pkt_size", "IAX_mean_pkt_size", "ICMP_mean_pkt_size", "IMAPS_mean_pkt_size", "IMO_mean_pkt_size",                
-                             "Instagram_mean_pkt_size","IPsec_mean_pkt_size", "LDAP_mean_pkt_size", "LinkedIn_mean_pkt_size", "LotusNotes_mean_pkt_size", "Messenger_mean_pkt_size", "Microsoft_mean_pkt_size",          
-                             "MQTT_mean_pkt_size", "MS_OneDrive_mean_pkt_size", "MSN_mean_pkt_size", "MsSQL-TDS_mean_pkt_size", "NetBIOS_mean_pkt_size", "NetFlix_mean_pkt_size", "NTP_mean_pkt_size",                
-                             "Office365_mean_pkt_size", "Ookla_mean_pkt_size", "OpenDNS_mean_pkt_size", "Oracle_mean_pkt_size", "Pando_Media_Booster_mean_pkt_size", "Playstation_mean_pkt_size", "PlayStore_mean_pkt_size",          
-                             "QQ_mean_pkt_size", "QUIC_mean_pkt_size", "RDP_mean_pkt_size", "RTMP_mean_pkt_size", "RTP_mean_pkt_size", "RTSP_mean_pkt_size", "RX_mean_pkt_size",      
-                             "SAP_mean_pkt_size", "sFlow_mean_pkt_size", "SIP_mean_pkt_size", "Skype_mean_pkt_size", "SkypeCall_mean_pkt_size", "SMBv1_mean_pkt_size", "SMBv23_mean_pkt_size",             
-                             "SMTP_mean_pkt_size", "Snapchat_mean_pkt_size", "SNMP_mean_pkt_size", "SOMEIP_mean_pkt_size", "Spotify_mean_pkt_size", "SSDP_mean_pkt_size", "SSH_mean_pkt_size",                
-                             "Steam_mean_pkt_size", "STUN_mean_pkt_size", "Syslog_mean_pkt_size", "TeamViewer_mean_pkt_size", "Telegram_mean_pkt_size", "Teredo_mean_pkt_size", "TLS_mean_pkt_size",                
-                             "Twitch_mean_pkt_size", "Twitter_mean_pkt_size", "UbuntuONE_mean_pkt_size", "Unencrypted_Jabber_mean_pkt_size", "Unknown_mean_pkt_size", "VNC_mean_pkt_size", "WhatsApp_mean_pkt_size",           
-                             "WhatsAppCall_mean_pkt_size", "Whois-DAS_mean_pkt_size", "Wikipedia_mean_pkt_size", "WindowsUpdate_mean_pkt_size", "Xbox_mean_pkt_size", "Yahoo_mean_pkt_size", "YouTube_mean_pkt_size")
+colnames(mean_octet_total_count.df) <- c("Amazon_data_occupation", "AmazonVideo_data_occupation", "Apple_data_occupation", "AppleiCloud_data_occupation", "AppleiTunes_data_occupation", "ApplePush_data_occupation", "AppleStore_data_occupation",
+                             "BitTorrent_data_occupation", "CiscoVPN_data_occupation", "Citrix_data_occupation", "Cloudflare_data_occupation", "DataSaver_data_occupation", "Deezer_data_occupation", "DHCP_data_occupation",
+                             "DNP3_data_occupation", "DNS_data_occupation", "DNSoverHTTPS_data_occupation", "Dropbox_data_occupation", "Facebook_data_occupation", "FTP_DATA_data_occupation", "Github_data_occupation",
+                             "GMail_data_occupation", "Google_data_occupation", "GoogleDocs_data_occupation", "GoogleDrive_data_occupation", "GoogleHangoutDuo_data_occupation", "GoogleMaps_data_occupation", "GoogleServices_data_occupation",
+                             "GTP_data_occupation", "HTTP_data_occupation", "HTTP_Proxy_data_occupation", "IAX_data_occupation", "ICMP_data_occupation", "IMAPS_data_occupation", "IMO_data_occupation",                
+                             "Instagram_data_occupation","IPsec_data_occupation", "LDAP_data_occupation", "LinkedIn_data_occupation", "LotusNotes_data_occupation", "Messenger_data_occupation", "Microsoft_data_occupation",          
+                             "MQTT_data_occupation", "MS_OneDrive_data_occupation", "MSN_data_occupation", "MsSQL-TDS_data_occupation", "NetBIOS_data_occupation", "NetFlix_data_occupation", "NTP_data_occupation",                
+                             "Office365_data_occupation", "Ookla_data_occupation", "OpenDNS_data_occupation", "Oracle_data_occupation", "Pando_Media_Booster_data_occupation", "Playstation_data_occupation", "PlayStore_data_occupation",          
+                             "QQ_data_occupation", "QUIC_data_occupation", "RDP_data_occupation", "RTMP_data_occupation", "RTP_data_occupation", "RTSP_data_occupation", "RX_data_occupation",      
+                             "SAP_data_occupation", "sFlow_data_occupation", "SIP_data_occupation", "Skype_data_occupation", "SkypeCall_data_occupation", "SMBv1_data_occupation", "SMBv23_data_occupation",             
+                             "SMTP_data_occupation", "Snapchat_data_occupation", "SNMP_data_occupation", "SOMEIP_data_occupation", "Spotify_data_occupation", "SSDP_data_occupation", "SSH_data_occupation",                
+                             "Steam_data_occupation", "STUN_data_occupation", "Syslog_data_occupation", "TeamViewer_data_occupation", "Telegram_data_occupation", "Teredo_data_occupation", "TLS_data_occupation",                
+                             "Twitch_data_occupation", "Twitter_data_occupation", "UbuntuONE_data_occupation", "Unencrypted_Jabber_data_occupation", "Unknown_data_occupation", "VNC_data_occupation", "WhatsApp_data_occupation",           
+                             "WhatsAppCall_data_occupation", "Whois-DAS_data_occupation", "Wikipedia_data_occupation", "WindowsUpdate_data_occupation", "Xbox_data_occupation", "Yahoo_data_occupation", "YouTube_data_occupation")
 
 # Set the column names in their order - 141 applications - Complete dataset
-colnames(mean_octet_total_count.df) <- c("104_mean_pkt_size",                  "AJP_mean_pkt_size",                  "Amazon_mean_pkt_size",               "AmazonVideo_mean_pkt_size",          "Apple_mean_pkt_size",                "AppleiCloud_mean_pkt_size",          "AppleiTunes_mean_pkt_size",          "ApplePush_mean_pkt_size",           
-                                     "AppleStore_mean_pkt_size",           "BGP_mean_pkt_size",                  "BitTorrent_mean_pkt_size",           "BJNP_mean_pkt_size",                 "CiscoSkinny_mean_pkt_size",          "CiscoVPN_mean_pkt_size",             "Citrix_mean_pkt_size",               "Cloudflare_mean_pkt_size",          
-                                     "CNN_mean_pkt_size",                  "DataSaver_mean_pkt_size",            "Deezer_mean_pkt_size",               "DHCP_mean_pkt_size",                 "Direct_Download_Link_mean_pkt_size", "DNP3_mean_pkt_size",                 "DNS_mean_pkt_size",                  "DNSoverHTTPS_mean_pkt_size",        
-                                     "Dropbox_mean_pkt_size",              "eBay_mean_pkt_size",                 "eDonkey_mean_pkt_size",              "Facebook_mean_pkt_size",             "FTP_CONTROL_mean_pkt_size",          "FTP_DATA_mean_pkt_size",             "Github_mean_pkt_size",               "GMail_mean_pkt_size",               
-                                     "Google_mean_pkt_size",               "GoogleDocs_mean_pkt_size",           "GoogleDrive_mean_pkt_size",          "GoogleHangoutDuo_mean_pkt_size",     "GoogleMaps_mean_pkt_size",           "GooglePlus_mean_pkt_size",           "GoogleServices_mean_pkt_size",       "GTP_mean_pkt_size",                 
-                                     "H323_mean_pkt_size",                 "HotspotShield_mean_pkt_size",        "HTTP_mean_pkt_size",                 "HTTP_Proxy_mean_pkt_size",           "IAX_mean_pkt_size",                  "ICMP_mean_pkt_size",                 "IMAPS_mean_pkt_size",                "IMO_mean_pkt_size",                 
-                                     "Instagram_mean_pkt_size",            "IPsec_mean_pkt_size",                "IRC_mean_pkt_size",                  "LDAP_mean_pkt_size",                 "LinkedIn_mean_pkt_size",             "LotusNotes_mean_pkt_size",           "MDNS_mean_pkt_size",                 "Messenger_mean_pkt_size",           
-                                     "Microsoft_mean_pkt_size",            "Mining_mean_pkt_size",               "MQTT_mean_pkt_size",                 "MS_OneDrive_mean_pkt_size",          "MSN_mean_pkt_size",                  "MsSQL-TDS_mean_pkt_size",            "MySQL_mean_pkt_size",                "NestLogSink_mean_pkt_size",         
-                                     "NetBIOS_mean_pkt_size",              "NetFlix_mean_pkt_size",              "NFS_mean_pkt_size",                  "NTP_mean_pkt_size",                  "Office365_mean_pkt_size",            "Ookla_mean_pkt_size",                "OpenDNS_mean_pkt_size",              "OpenVPN_mean_pkt_size",             
-                                     "Oracle_mean_pkt_size",               "Pando_Media_Booster_mean_pkt_size",  "Playstation_mean_pkt_size",          "PlayStore_mean_pkt_size",            "POP3_mean_pkt_size",                 "PostgreSQL_mean_pkt_size",           "PS_VUE_mean_pkt_size",               "QQ_mean_pkt_size",                  
-                                     "QUIC_mean_pkt_size",                 "Radius_mean_pkt_size",               "RDP_mean_pkt_size",                  "RTMP_mean_pkt_size",                 "RTP_mean_pkt_size",                  "RTSP_mean_pkt_size",                 "RX_mean_pkt_size",                   "SAP_mean_pkt_size",                 
-                                     "sFlow_mean_pkt_size",                "Signal_mean_pkt_size",               "Sina(Weibo)_mean_pkt_size",          "SIP_mean_pkt_size",                  "Skype_mean_pkt_size",                "SkypeCall_mean_pkt_size",            "Slack_mean_pkt_size",                "SMBv1_mean_pkt_size",               
-                                     "SMBv23_mean_pkt_size",               "SMTP_mean_pkt_size",                 "SMTPS_mean_pkt_size",                "Snapchat_mean_pkt_size",             "SNMP_mean_pkt_size",                 "SOCKS_mean_pkt_size",                "SOMEIP_mean_pkt_size",               "SoundCloud_mean_pkt_size",          
-                                     "Spotify_mean_pkt_size",              "SSDP_mean_pkt_size",                 "SSH_mean_pkt_size",                  "Starcraft_mean_pkt_size",            "Steam_mean_pkt_size",                "STUN_mean_pkt_size",                 "Syslog_mean_pkt_size",               "Targus Dataspeed_mean_pkt_size",    
-                                     "TeamViewer_mean_pkt_size",           "Telegram_mean_pkt_size",             "Teredo_mean_pkt_size",               "TikTok_mean_pkt_size",               "TLS_mean_pkt_size",                  "Tor_mean_pkt_size",                  "Tuenti_mean_pkt_size",               "Twitch_mean_pkt_size",              
-                                     "Twitter_mean_pkt_size",              "UBNTAC2_mean_pkt_size",              "UbuntuONE_mean_pkt_size",            "Unencrypted_Jabber_mean_pkt_size",   "Unknown_mean_pkt_size",              "UPnP_mean_pkt_size",                 "Viber_mean_pkt_size",                "VNC_mean_pkt_size",                 
-                                     "Waze_mean_pkt_size",                 "Webex_mean_pkt_size",                "WeChat_mean_pkt_size",               "WhatsApp_mean_pkt_size",             "WhatsAppCall_mean_pkt_size",         "WhatsAppFiles_mean_pkt_size",        "Whois-DAS_mean_pkt_size",            "Wikipedia_mean_pkt_size",           
-                                     "WindowsUpdate_mean_pkt_size",        "Xbox_mean_pkt_size",                 "Yahoo_mean_pkt_size",                "YouTube_mean_pkt_size",              "Zoom_mean_pkt_size")
+colnames(mean_octet_total_count.df) <- c("104_data_occupation",                  "AJP_data_occupation",                  "Amazon_data_occupation",               "AmazonVideo_data_occupation",          "Apple_data_occupation",                "AppleiCloud_data_occupation",          "AppleiTunes_data_occupation",          "ApplePush_data_occupation",           
+                                     "AppleStore_data_occupation",           "BGP_data_occupation",                  "BitTorrent_data_occupation",           "BJNP_data_occupation",                 "CiscoSkinny_data_occupation",          "CiscoVPN_data_occupation",             "Citrix_data_occupation",               "Cloudflare_data_occupation",          
+                                     "CNN_data_occupation",                  "DataSaver_data_occupation",            "Deezer_data_occupation",               "DHCP_data_occupation",                 "Direct_Download_Link_data_occupation", "DNP3_data_occupation",                 "DNS_data_occupation",                  "DNSoverHTTPS_data_occupation",        
+                                     "Dropbox_data_occupation",              "eBay_data_occupation",                 "eDonkey_data_occupation",              "Facebook_data_occupation",             "FTP_CONTROL_data_occupation",          "FTP_DATA_data_occupation",             "Github_data_occupation",               "GMail_data_occupation",               
+                                     "Google_data_occupation",               "GoogleDocs_data_occupation",           "GoogleDrive_data_occupation",          "GoogleHangoutDuo_data_occupation",     "GoogleMaps_data_occupation",           "GooglePlus_data_occupation",           "GoogleServices_data_occupation",       "GTP_data_occupation",                 
+                                     "H323_data_occupation",                 "HotspotShield_data_occupation",        "HTTP_data_occupation",                 "HTTP_Proxy_data_occupation",           "IAX_data_occupation",                  "ICMP_data_occupation",                 "IMAPS_data_occupation",                "IMO_data_occupation",                 
+                                     "Instagram_data_occupation",            "IPsec_data_occupation",                "IRC_data_occupation",                  "LDAP_data_occupation",                 "LinkedIn_data_occupation",             "LotusNotes_data_occupation",           "MDNS_data_occupation",                 "Messenger_data_occupation",           
+                                     "Microsoft_data_occupation",            "Mining_data_occupation",               "MQTT_data_occupation",                 "MS_OneDrive_data_occupation",          "MSN_data_occupation",                  "MsSQL-TDS_data_occupation",            "MySQL_data_occupation",                "NestLogSink_data_occupation",         
+                                     "NetBIOS_data_occupation",              "NetFlix_data_occupation",              "NFS_data_occupation",                  "NTP_data_occupation",                  "Office365_data_occupation",            "Ookla_data_occupation",                "OpenDNS_data_occupation",              "OpenVPN_data_occupation",             
+                                     "Oracle_data_occupation",               "Pando_Media_Booster_data_occupation",  "Playstation_data_occupation",          "PlayStore_data_occupation",            "POP3_data_occupation",                 "PostgreSQL_data_occupation",           "PS_VUE_data_occupation",               "QQ_data_occupation",                  
+                                     "QUIC_data_occupation",                 "Radius_data_occupation",               "RDP_data_occupation",                  "RTMP_data_occupation",                 "RTP_data_occupation",                  "RTSP_data_occupation",                 "RX_data_occupation",                   "SAP_data_occupation",                 
+                                     "sFlow_data_occupation",                "Signal_data_occupation",               "Sina(Weibo)_data_occupation",          "SIP_data_occupation",                  "Skype_data_occupation",                "SkypeCall_data_occupation",            "Slack_data_occupation",                "SMBv1_data_occupation",               
+                                     "SMBv23_data_occupation",               "SMTP_data_occupation",                 "SMTPS_data_occupation",                "Snapchat_data_occupation",             "SNMP_data_occupation",                 "SOCKS_data_occupation",                "SOMEIP_data_occupation",               "SoundCloud_data_occupation",          
+                                     "Spotify_data_occupation",              "SSDP_data_occupation",                 "SSH_data_occupation",                  "Starcraft_data_occupation",            "Steam_data_occupation",                "STUN_data_occupation",                 "Syslog_data_occupation",               "Targus Dataspeed_data_occupation",    
+                                     "TeamViewer_data_occupation",           "Telegram_data_occupation",             "Teredo_data_occupation",               "TikTok_data_occupation",               "TLS_data_occupation",                  "Tor_data_occupation",                  "Tuenti_data_occupation",               "Twitch_data_occupation",              
+                                     "Twitter_data_occupation",              "UBNTAC2_data_occupation",              "UbuntuONE_data_occupation",            "Unencrypted_Jabber_data_occupation",   "Unknown_data_occupation",              "UPnP_data_occupation",                 "Viber_data_occupation",                "VNC_data_occupation",                 
+                                     "Waze_data_occupation",                 "Webex_data_occupation",                "WeChat_data_occupation",               "WhatsApp_data_occupation",             "WhatsAppCall_data_occupation",         "WhatsAppFiles_data_occupation",        "Whois-DAS_data_occupation",            "Wikipedia_data_occupation",           
+                                     "WindowsUpdate_data_occupation",        "Xbox_data_occupation",                 "Yahoo_data_occupation",                "YouTube_data_occupation",              "Zoom_data_occupation")
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------
 #-----------------------------------------------------OBTAIN THE MEAN FLOW DURATION PER APPLICATION--------------------------------------------------------------------------
@@ -371,34 +371,34 @@ colnames(mean_flow_duration.df) <- c("104_mean_flow_duration",                  
 #-------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #-----------------------------------------------------OBTAIN THE TOTAL NUMBER OF PACKETS SENT IN BOTH DIRECTIONS PER APPLICATION--------------------------------------------------------------------------
-# Obtain a summary of the total number of packets sent in both directions per application label for each src ip
-total_packets_per_app <- as.data.frame(tapply(df$pktTotalCount, list(df$src_ip, df$web_service), sum))
-# Set the row indexes as numbers
-rownames(total_packets_per_app) <- 1:nrow(total_packets_per_app)
-# Replace NA with 0
-total_packets_per_app[is.na((total_packets_per_app))] <- 0
-
-# Set the column names in their order - 141 applications - Complete dataset
-colnames(total_packets_per_app) <- c("104_total_packets",                  "AJP_total_packets",                  "Amazon_total_packets",               "AmazonVideo_total_packets",          "Apple_total_packets",                "AppleiCloud_total_packets",          "AppleiTunes_total_packets",          "ApplePush_total_packets",           
-                                     "AppleStore_total_packets",           "BGP_total_packets",                  "BitTorrent_total_packets",           "BJNP_total_packets",                 "CiscoSkinny_total_packets",          "CiscoVPN_total_packets",             "Citrix_total_packets",               "Cloudflare_total_packets",          
-                                     "CNN_total_packets",                  "DataSaver_total_packets",            "Deezer_total_packets",               "DHCP_total_packets",                 "Direct_Download_Link_total_packets", "DNP3_total_packets",                 "DNS_total_packets",                  "DNSoverHTTPS_total_packets",        
-                                     "Dropbox_total_packets",              "eBay_total_packets",                 "eDonkey_total_packets",              "Facebook_total_packets",             "FTP_CONTROL_total_packets",          "FTP_DATA_total_packets",             "Github_total_packets",               "GMail_total_packets",               
-                                     "Google_total_packets",               "GoogleDocs_total_packets",           "GoogleDrive_total_packets",          "GoogleHangoutDuo_total_packets",     "GoogleMaps_total_packets",           "GooglePlus_total_packets",           "GoogleServices_total_packets",       "GTP_total_packets",                 
-                                     "H323_total_packets",                 "HotspotShield_total_packets",        "HTTP_total_packets",                 "HTTP_Proxy_total_packets",           "IAX_total_packets",                  "ICMP_total_packets",                 "IMAPS_total_packets",                "IMO_total_packets",                 
-                                     "Instagram_total_packets",            "IPsec_total_packets",                "IRC_total_packets",                  "LDAP_total_packets",                 "LinkedIn_total_packets",             "LotusNotes_total_packets",           "MDNS_total_packets",                 "Messenger_total_packets",           
-                                     "Microsoft_total_packets",            "Mining_total_packets",               "MQTT_total_packets",                 "MS_OneDrive_total_packets",          "MSN_total_packets",                  "MsSQL-TDS_total_packets",            "MySQL_total_packets",                "NestLogSink_total_packets",         
-                                     "NetBIOS_total_packets",              "NetFlix_total_packets",              "NFS_total_packets",                  "NTP_total_packets",                  "Office365_total_packets",            "Ookla_total_packets",                "OpenDNS_total_packets",              "OpenVPN_total_packets",             
-                                     "Oracle_total_packets",               "Pando_Media_Booster_total_packets",  "Playstation_total_packets",          "PlayStore_total_packets",            "POP3_total_packets",                 "PostgreSQL_total_packets",           "PS_VUE_total_packets",               "QQ_total_packets",                  
-                                     "QUIC_total_packets",                 "Radius_total_packets",               "RDP_total_packets",                  "RTMP_total_packets",                 "RTP_total_packets",                  "RTSP_total_packets",                 "RX_total_packets",                   "SAP_total_packets",                 
-                                     "sFlow_total_packets",                "Signal_total_packets",               "Sina(Weibo)_total_packets",          "SIP_total_packets",                  "Skype_total_packets",                "SkypeCall_total_packets",            "Slack_total_packets",                "SMBv1_total_packets",               
-                                     "SMBv23_total_packets",               "SMTP_total_packets",                 "SMTPS_total_packets",                "Snapchat_total_packets",             "SNMP_total_packets",                 "SOCKS_total_packets",                "SOMEIP_total_packets",               "SoundCloud_total_packets",          
-                                     "Spotify_total_packets",              "SSDP_total_packets",                 "SSH_total_packets",                  "Starcraft_total_packets",            "Steam_total_packets",                "STUN_total_packets",                 "Syslog_total_packets",               "Targus Dataspeed_total_packets",    
-                                     "TeamViewer_total_packets",           "Telegram_total_packets",             "Teredo_total_packets",               "TikTok_total_packets",               "TLS_total_packets",                  "Tor_total_packets",                  "Tuenti_total_packets",               "Twitch_total_packets",              
-                                     "Twitter_total_packets",              "UBNTAC2_total_packets",              "UbuntuONE_total_packets",            "Unencrypted_Jabber_total_packets",   "Unknown_total_packets",              "UPnP_total_packets",                 "Viber_total_packets",                "VNC_total_packets",                 
-                                     "Waze_total_packets",                 "Webex_total_packets",                "WeChat_total_packets",               "WhatsApp_total_packets",             "WhatsAppCall_total_packets",         "WhatsAppFiles_total_packets",        "Whois-DAS_total_packets",            "Wikipedia_total_packets",           
-                                     "WindowsUpdate_total_packets",        "Xbox_total_packets",                 "Yahoo_total_packets",                "YouTube_total_packets",              "Zoom_total_packets")
-
-head(total_packets_per_app)
+# # Obtain a summary of the total number of packets sent in both directions per application label for each src ip
+# total_packets_per_app <- as.data.frame(tapply(df$pktTotalCount, list(df$src_ip, df$web_service), sum))
+# # Set the row indexes as numbers
+# rownames(total_packets_per_app) <- 1:nrow(total_packets_per_app)
+# # Replace NA with 0
+# total_packets_per_app[is.na((total_packets_per_app))] <- 0
+# 
+# # Set the column names in their order - 141 applications - Complete dataset
+# colnames(total_packets_per_app) <- c("104_total_packets",                  "AJP_total_packets",                  "Amazon_total_packets",               "AmazonVideo_total_packets",          "Apple_total_packets",                "AppleiCloud_total_packets",          "AppleiTunes_total_packets",          "ApplePush_total_packets",           
+#                                      "AppleStore_total_packets",           "BGP_total_packets",                  "BitTorrent_total_packets",           "BJNP_total_packets",                 "CiscoSkinny_total_packets",          "CiscoVPN_total_packets",             "Citrix_total_packets",               "Cloudflare_total_packets",          
+#                                      "CNN_total_packets",                  "DataSaver_total_packets",            "Deezer_total_packets",               "DHCP_total_packets",                 "Direct_Download_Link_total_packets", "DNP3_total_packets",                 "DNS_total_packets",                  "DNSoverHTTPS_total_packets",        
+#                                      "Dropbox_total_packets",              "eBay_total_packets",                 "eDonkey_total_packets",              "Facebook_total_packets",             "FTP_CONTROL_total_packets",          "FTP_DATA_total_packets",             "Github_total_packets",               "GMail_total_packets",               
+#                                      "Google_total_packets",               "GoogleDocs_total_packets",           "GoogleDrive_total_packets",          "GoogleHangoutDuo_total_packets",     "GoogleMaps_total_packets",           "GooglePlus_total_packets",           "GoogleServices_total_packets",       "GTP_total_packets",                 
+#                                      "H323_total_packets",                 "HotspotShield_total_packets",        "HTTP_total_packets",                 "HTTP_Proxy_total_packets",           "IAX_total_packets",                  "ICMP_total_packets",                 "IMAPS_total_packets",                "IMO_total_packets",                 
+#                                      "Instagram_total_packets",            "IPsec_total_packets",                "IRC_total_packets",                  "LDAP_total_packets",                 "LinkedIn_total_packets",             "LotusNotes_total_packets",           "MDNS_total_packets",                 "Messenger_total_packets",           
+#                                      "Microsoft_total_packets",            "Mining_total_packets",               "MQTT_total_packets",                 "MS_OneDrive_total_packets",          "MSN_total_packets",                  "MsSQL-TDS_total_packets",            "MySQL_total_packets",                "NestLogSink_total_packets",         
+#                                      "NetBIOS_total_packets",              "NetFlix_total_packets",              "NFS_total_packets",                  "NTP_total_packets",                  "Office365_total_packets",            "Ookla_total_packets",                "OpenDNS_total_packets",              "OpenVPN_total_packets",             
+#                                      "Oracle_total_packets",               "Pando_Media_Booster_total_packets",  "Playstation_total_packets",          "PlayStore_total_packets",            "POP3_total_packets",                 "PostgreSQL_total_packets",           "PS_VUE_total_packets",               "QQ_total_packets",                  
+#                                      "QUIC_total_packets",                 "Radius_total_packets",               "RDP_total_packets",                  "RTMP_total_packets",                 "RTP_total_packets",                  "RTSP_total_packets",                 "RX_total_packets",                   "SAP_total_packets",                 
+#                                      "sFlow_total_packets",                "Signal_total_packets",               "Sina(Weibo)_total_packets",          "SIP_total_packets",                  "Skype_total_packets",                "SkypeCall_total_packets",            "Slack_total_packets",                "SMBv1_total_packets",               
+#                                      "SMBv23_total_packets",               "SMTP_total_packets",                 "SMTPS_total_packets",                "Snapchat_total_packets",             "SNMP_total_packets",                 "SOCKS_total_packets",                "SOMEIP_total_packets",               "SoundCloud_total_packets",          
+#                                      "Spotify_total_packets",              "SSDP_total_packets",                 "SSH_total_packets",                  "Starcraft_total_packets",            "Steam_total_packets",                "STUN_total_packets",                 "Syslog_total_packets",               "Targus Dataspeed_total_packets",    
+#                                      "TeamViewer_total_packets",           "Telegram_total_packets",             "Teredo_total_packets",               "TikTok_total_packets",               "TLS_total_packets",                  "Tor_total_packets",                  "Tuenti_total_packets",               "Twitch_total_packets",              
+#                                      "Twitter_total_packets",              "UBNTAC2_total_packets",              "UbuntuONE_total_packets",            "Unencrypted_Jabber_total_packets",   "Unknown_total_packets",              "UPnP_total_packets",                 "Viber_total_packets",                "VNC_total_packets",                 
+#                                      "Waze_total_packets",                 "Webex_total_packets",                "WeChat_total_packets",               "WhatsApp_total_packets",             "WhatsAppCall_total_packets",         "WhatsAppFiles_total_packets",        "Whois-DAS_total_packets",            "Wikipedia_total_packets",           
+#                                      "WindowsUpdate_total_packets",        "Xbox_total_packets",                 "Yahoo_total_packets",                "YouTube_total_packets",              "Zoom_total_packets")
+# 
+# head(total_packets_per_app)
 
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -407,7 +407,7 @@ head(total_packets_per_app)
 #-------------------------------------------------------------------JOIN COLUMNS AND GENERATE THE SUMMARIZED DATASET (TOTAL FLOWS; MEAN PKT SIZE; MEAN FLOW DURATION; TOTAL PACKETS) ------------------------------------------------------------------------------------
 summarized_dataset <- cbind(flows_per_app, mean_octet_total_count.df)
 summarized_dataset <- cbind(summarized_dataset, mean_flow_duration.df)
-summarized_dataset <- cbind(summarized_dataset, total_packets_per_app)
+#summarized_dataset <- cbind(summarized_dataset, total_packets_per_app)
 
 # Convert src ip adresses from network format to decimal format
 summarized_dataset[, c("src_ip_numeric")] <- unique(df[, c("src_ip_numeric")])
@@ -416,7 +416,7 @@ summarized_dataset[, c("src_ip_numeric")] <- unique(df[, c("src_ip_numeric")])
 summarized_dataset <- summarized_dataset[order(summarized_dataset[,c("src_ip_numeric")]),]
 
 # Reorder the columns so the decimal form of the src ip is first
-summarized_dataset <- subset(summarized_dataset, select=c(566,1:565))
+summarized_dataset <- subset(summarized_dataset, select=c(425,1:424))
 
 
 write.csv(summarized_dataset, "/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/Unicauca_Users-summarized-dataset-April_June_2019.csv", row.names = FALSE, quote = FALSE, sep=",")
@@ -434,10 +434,8 @@ gc()
 
 summarized_dataset <- read.csv("/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/Summarized Dataset 2019 - all Apps - Analysis/Unicauca_Users-Summarized-dataset-April_June_2019.csv")
 
-# Store the user identificators in two columns
-src_ip_numeric <- summarized_dataset$src_ip_numeric
-
 # Obtain the occupation of the network in terms of time (seconds)
+'104_time_occupation' <- summarized_dataset$`104_flows` * summarized_dataset$`104_mean_flow_duration`
 AJP_time_occupation <- summarized_dataset$AJP_flows * summarized_dataset$AJP_mean_flow_duration
 Amazon_time_occupation <- summarized_dataset$Amazon_flows * summarized_dataset$Amazon_mean_flow_duration
 AmazonVideo_time_occupation <- summarized_dataset$AmazonVideo_flows * summarized_dataset$Amazon_mean_flow_duration          
@@ -498,7 +496,7 @@ Mining_time_occupation <- summarized_dataset$Mining_flows * summarized_dataset$M
 MQTT_time_occupation <- summarized_dataset$MQTT_flows * summarized_dataset$MQTT_mean_flow_duration                
 MS_OneDrive_time_occupation <- summarized_dataset$MS_OneDrive_flows * summarized_dataset$MS_OneDrive_mean_flow_duration        
 MSN_time_occupation <- summarized_dataset$MSN_flows * summarized_dataset$MSN_mean_flow_duration             
-MsSQL-TDS_time_occupation <- summarized_dataset$`MsSQL-TDS_flows`* summarized_dataset$`MsSQL-TDS_mean_flow_duration`          
+'MsSQL-TDS_time_occupation' <- summarized_dataset$`MsSQL-TDS_flows`* summarized_dataset$`MsSQL-TDS_mean_flow_duration`          
 MySQL_time_occupation <- summarized_dataset$MySQL_flows * summarized_dataset$MySQL_mean_flow_duration              
 NestLogSink_time_occupation <- summarized_dataset$NestLogSink_flows * summarized_dataset$NestLogSink_mean_flow_duration        
 NetBIOS_time_occupation <- summarized_dataset$NetBIOS_flows * summarized_dataset$NetBIOS_mean_flow_duration             
@@ -548,7 +546,7 @@ Starcraft_time_occupation <- summarized_dataset$Starcraft_flows * summarized_dat
 Steam_time_occupation <- summarized_dataset$Steam_flows * summarized_dataset$Steam_mean_flow_duration
 STUN_time_occupation <- summarized_dataset$STUN_flows * summarized_dataset$STUN_mean_flow_duration                  
 Syslog_time_occupation <- summarized_dataset$Syslog_flows * summarized_dataset$Syslog_mean_flow_duration       
-Targus_Dataspeed_time_occupation <- summarized_dataset$`Targus Dataspeed_flows` * summarized_dataset$`Targus Dataspeed_mean_flow_duration`
+Targus_Dataspeed_time_occupation <- summarized_dataset$Targus_Dataspeed_flows * summarized_dataset$`Targus Dataspeed_mean_flow_duration`
 TeamViewer_time_occupation <- summarized_dataset$TeamViewer_flows * summarized_dataset$TeamViewer_mean_flow_duration
 Telegram_time_occupation <- summarized_dataset$Telegram_flows * summarized_dataset$Telegram_mean_flow_duration             
 Teredo_time_occupation <- summarized_dataset$Teredo_flows * summarized_dataset$Teredo_mean_flow_duration               
@@ -571,7 +569,7 @@ WeChat_time_occupation <- summarized_dataset$WeChat_flows * summarized_dataset$W
 WhatsApp_time_occupation <- summarized_dataset$WhatsApp_flows * summarized_dataset$WhatsApp_mean_flow_duration           
 WhatsAppCall_time_occupation <- summarized_dataset$WhatsAppCall_flows * summarized_dataset$WhatsAppCall_mean_flow_duration         
 WhatsAppFiles_time_occupation <- summarized_dataset$WhatsAppFiles_flows * summarized_dataset$WhatsAppFiles_mean_flow_duration
-Whois-DAS_time_occupation <- summarized_dataset$`Whois-DAS_flows`* summarized_dataset$`Whois-DAS_mean_flow_duration`            
+'Whois-DAS_time_occupation' <- summarized_dataset$`Whois-DAS_flows`* summarized_dataset$`Whois-DAS_mean_flow_duration`            
 Wikipedia_time_occupation <- summarized_dataset$Wikipedia_flows * summarized_dataset$Wikipedia_mean_flow_duration         
 WindowsUpdate_time_occupation <- summarized_dataset$WindowsUpdate_flows * summarized_dataset$WindowsUpdate_mean_flow_duration
 Xbox_time_occupation <- summarized_dataset$Xbox_flows * summarized_dataset$Xbox_mean_flow_duration                 
@@ -580,155 +578,155 @@ YouTube_time_occupation <- summarized_dataset$YouTube_flows * summarized_dataset
 Zoom_time_occupation <- summarized_dataset$Zoom_flows * summarized_dataset$Zoom_mean_flow_duration
 
 # Obtain the occupation of the network in terms of quantity of transferred data (bytes)
-AJP_data_occupation <- summarized_dataset$AJP_mean_pkt_size * summarized_dataset$AJP_total_packets
-Amazon_data_occupation <- summarized_dataset$Amazon_mean_pkt_size * summarized_dataset$Amazon_total_packets
-AmazonVideo_data_occupation <- summarized_dataset$AmazonVideo_mean_pkt_size * summarized_dataset$AmazonVideo_total_packets          
-Apple_data_occupation <- summarized_dataset$Apple_mean_pkt_size * summarized_dataset$Apple_total_packets                
-AppleiCloud_data_occupation <- summarized_dataset$AppleiCloud_mean_pkt_size * summarized_dataset$AppleiCloud_total_packets          
-AppleiTunes_data_occupation <- summarized_dataset$AppleiTunes_mean_pkt_size * summarized_dataset$AppleiTunes_total_packets          
-ApplePush_data_occupation <- summarized_dataset$ApplePush_mean_pkt_size * summarized_dataset$ApplePush_total_packets           
-AppleStore_data_occupation <- summarized_dataset$AppleStore_mean_pkt_size * summarized_dataset$AppleStore_total_packets           
-BGP_data_occupation <- summarized_dataset$BGP_mean_pkt_size * summarized_dataset$BGP_total_packets                  
-BitTorrent_data_occupation <- summarized_dataset$BitTorrent_mean_pkt_size * summarized_dataset$BitTorrent_total_packets           
-BJNP_data_occupation <- summarized_dataset$BJNP_mean_pkt_size * summarized_dataset$BJNP_total_packets                 
-CiscoSkinny_data_occupation <- summarized_dataset$CiscoSkinny_mean_pkt_size * summarized_dataset$CiscoSkinny_total_packets          
-CiscoVPN_data_occupation <- summarized_dataset$CiscoVPN_mean_pkt_size * summarized_dataset$CiscoVPN_total_packets             
-Citrix_data_occupation <- summarized_dataset$Citrix_mean_pkt_size * summarized_dataset$Citrix_total_packets               
-Cloudflare_data_occupation <- summarized_dataset$Cloudflare_mean_pkt_size * summarized_dataset$Cloudflare_total_packets          
-CNN_data_occupation <- summarized_dataset$CNN_mean_pkt_size * summarized_dataset$CNN_total_packets                  
-DataSaver_data_occupation <- summarized_dataset$DataSaver_mean_pkt_size * summarized_dataset$DataSaver_total_packets            
-Deezer_data_occupation <- summarized_dataset$Deezer_mean_pkt_size * summarized_dataset$Deezer_total_packets             
-DHCP_data_occupation <- summarized_dataset$DHCP_mean_pkt_size * summarized_dataset$DHCP_total_packets                 
-Direct_Download_Link_data_occupation <- summarized_dataset$Direct_Download_Link_mean_pkt_size * summarized_dataset$Direct_Download_Link_total_packets
-DNP3_data_occupation <- summarized_dataset$DNP3_mean_pkt_size * summarized_dataset$DNP3_total_packets
-DNS_data_occupation <- summarized_dataset$DNS_mean_pkt_size * summarized_dataset$DNS_total_packets
-DNSoverHTTPS_data_occupation <- summarized_dataset$DNSoverHTTPS_mean_pkt_size * summarized_dataset$DNSoverHTTPS_total_packets
-Dropbox_data_occupation <- summarized_dataset$Dropbox_mean_pkt_size * summarized_dataset$Dropbox_total_packets
-eBay_data_occupation <- summarized_dataset$eBay_mean_pkt_size * summarized_dataset$eBay_total_packets
-eDonkey_data_occupation <- summarized_dataset$eDonkey_mean_pkt_size * summarized_dataset$eDonkey_total_packets
-Facebook_data_occupation <- summarized_dataset$Facebook_mean_pkt_size * summarized_dataset$Facebook_total_packets            
-FTP_CONTROL_total_packet <- summarized_dataset$FTP_CONTROL_mean_pkt_size * summarized_dataset$FTP_CONTROL_total_packets         
-FTP_DATA_total_packet <- summarized_dataset$FTP_DATA_mean_pkt_size * summarized_dataset$FTP_DATA_total_packets            
-Github_data_occupation <- summarized_dataset$Github_mean_pkt_size * summarized_dataset$Github_total_packets            
-GMail_data_occupation <- summarized_dataset$GMail_mean_pkt_size * summarized_dataset$GMail_total_packets              
-Google_data_occupation <- summarized_dataset$Google_mean_pkt_size * summarized_dataset$Google_total_packets              
-GoogleDocs_data_occupation <- summarized_dataset$GoogleDocs_mean_pkt_size * summarized_dataset$GoogleDocs_total_packets           
-GoogleDrive_data_occupation <- summarized_dataset$GoogleDrive_mean_pkt_size * summarized_dataset$GoogleDrive_total_packets          
-GoogleHangoutDuo_data_occupation <- summarized_dataset$GoogleHangoutDuo_mean_pkt_size * summarized_dataset$GoogleHangoutDuo_total_packets     
-GoogleMaps_data_occupation <- summarized_dataset$GoogleMaps_mean_pkt_size * summarized_dataset$GoogleMaps_total_packets          
-GooglePlus_data_occupation <- summarized_dataset$GooglePlus_mean_pkt_size * summarized_dataset$GooglePlus_total_packets          
-GoogleServices_data_occupation <- summarized_dataset$GoogleServices_mean_pkt_size * summarized_dataset$GoogleServices_total_packets      
-GTP_data_occupation <- summarized_dataset$GTP_mean_pkt_size * summarized_dataset$GTP_total_packets               
-H323_data_occupation <- summarized_dataset$H323_mean_pkt_size * summarized_dataset$H323_total_packets              
-HotspotShield_data_occupation <- summarized_dataset$HotspotShield_mean_pkt_size * summarized_dataset$HotspotShield_total_packets       
-HTTP_data_occupation <- summarized_dataset$HTTP_mean_pkt_size * summarized_dataset$HTTP_total_packets                 
-HTTP_Proxy_data_occupation <- summarized_dataset$HTTP_Proxy_mean_pkt_size * summarized_dataset$HTTP_Proxy_total_packets          
-IAX_data_occupation <- summarized_dataset$IAX_mean_pkt_size * summarized_dataset$IAX_total_packets                  
-ICMP_data_occupation <- summarized_dataset$ICMP_mean_pkt_size * summarized_dataset$ICMP_total_packets               
-IMAPS_data_occupation <- summarized_dataset$IMAPS_mean_pkt_size * summarized_dataset$IMAPS_total_packets               
-IMO_data_occupation <- summarized_dataset$IMO_mean_pkt_size * summarized_dataset$IMO_total_packets                 
-Instagram_data_occupation <- summarized_dataset$Instagram_mean_pkt_size * summarized_dataset$Instagram_total_packets            
-IPsec_data_occupation <- summarized_dataset$IPsec_mean_pkt_size * summarized_dataset$IPsec_total_packets                
-IRC_data_occupation <- summarized_dataset$IRC_mean_pkt_size * summarized_dataset$IRC_total_packets                  
-LDAP_data_occupation <- summarized_dataset$LDAP_mean_pkt_size * summarized_dataset$LDAP_total_packets                
-LinkedIn_data_occupation <- summarized_dataset$LinkedIn_mean_pkt_size * summarized_dataset$LinkedIn_total_packets           
-LotusNotes_data_occupation <- summarized_dataset$LotusNotes_mean_pkt_size * summarized_dataset$LotusNotes_total_packets           
-MDNS_data_occupation <- summarized_dataset$MDNS_mean_pkt_size * summarized_dataset$MDNS_total_packets                 
-Messenger_data_occupation <- summarized_dataset$Messenger_mean_pkt_size * summarized_dataset$Messenger_total_packets          
-Microsoft_data_occupation <- summarized_dataset$Microsoft_mean_pkt_size * summarized_dataset$Microsoft_total_packets            
-Mining_data_occupation <- summarized_dataset$Mining_mean_pkt_size * summarized_dataset$Mining_total_packets              
-MQTT_data_occupation <- summarized_dataset$MQTT_mean_pkt_size * summarized_dataset$MQTT_total_packets                
-MS_OneDrive_data_occupation <- summarized_dataset$MS_OneDrive_mean_pkt_size * summarized_dataset$MS_OneDrive_total_packets        
-MSN_data_occupation <- summarized_dataset$MSN_mean_pkt_size * summarized_dataset$MSN_total_packets             
-MsSQL-TDS_data_occupation <- summarized_dataset$`MsSQL-TDS_mean_pkt_size` * summarized_dataset$`MsSQL-TDS_total_packets`          
-MySQL_data_occupation <- summarized_dataset$MySQL_mean_pkt_size * summarized_dataset$MySQL_total_packets              
-NestLogSink_data_occupation <- summarized_dataset$NestLogSink_mean_pkt_size * summarized_dataset$NestLogSink_total_packets        
-NetBIOS_data_occupation <- summarized_dataset$NetBIOS_mean_pkt_size * summarized_dataset$NetBIOS_total_packets             
-NetFlix_data_occupation <- summarized_dataset$NetFlix_mean_pkt_size * summarized_dataset$NetFlix_total_packets            
-NFS_data_occupation <- summarized_dataset$NFS_mean_pkt_size * summarized_dataset$NFS_total_packets                
-NTP_data_occupation <- summarized_dataset$NTP_mean_pkt_size * summarized_dataset$NTP_total_packets
-Office365_data_occupation <- summarized_dataset$Office365_mean_pkt_size * summarized_dataset$Office365_total_packets          
-Ookla_data_occupation <- summarized_dataset$Ookla_mean_pkt_size * summarized_dataset$Ookla_total_packets               
-OpenDNS_data_occupation <- summarized_dataset$OpenDNS_mean_pkt_size * summarized_dataset$OpenDNS_total_packets             
-OpenVPN_data_occupation <- summarized_dataset$OpenVPN_mean_pkt_size * summarized_dataset$OpenVPN_total_packets             
-Oracle_data_occupation <- summarized_dataset$Oracle_mean_pkt_size * summarized_dataset$Oracle_total_packets    
-Pando_Media_Booster_data_occupation <- summarized_dataset$Pando_Media_Booster_mean_pkt_size * summarized_dataset$Pando_Media_Booster_total_packets 
-Playstation_data_occupation <- summarized_dataset$Playstation_mean_pkt_size * summarized_dataset$Playstation_total_packets          
-PlayStore_data_occupation <- summarized_dataset$PlayStore_mean_pkt_size * summarized_dataset$PlayStore_total_packets            
-POP3_data_occupation <- summarized_dataset$POP3_mean_pkt_size * summarized_dataset$POP3_total_packets             
-PostgreSQL_data_occupation <- summarized_dataset$PostgreSQL_mean_pkt_size * summarized_dataset$PostgreSQL_total_packets           
-PS_VUE_data_occupation <- summarized_dataset$PS_VUE_mean_pkt_size * summarized_dataset$PS_VUE_total_packets               
-QQ_data_occupation <- summarized_dataset$QQ_mean_pkt_size * summarized_dataset$QQ_total_packets                  
-QUIC_data_occupation <- summarized_dataset$QUIC_mean_pkt_size * summarized_dataset$QUIC_total_packets                 
-Radius_data_occupation <- summarized_dataset$Radius_mean_pkt_size * summarized_dataset$Radius_total_packets               
-RDP_data_occupation <- summarized_dataset$RDP_mean_pkt_size * summarized_dataset$RDP_total_packets                  
-RTMP_data_occupation <- summarized_dataset$RTMP_mean_pkt_size * summarized_dataset$RTMP_total_packets                 
-RTP_data_occupation <- summarized_dataset$RTP_mean_pkt_size * summarized_dataset$RTP_total_packets
-RTSP_data_occupation <- summarized_dataset$RTSP_mean_pkt_size * summarized_dataset$RTSP_total_packets
-RX_data_occupation <- summarized_dataset$RX_mean_pkt_size * summarized_dataset$RX_total_packets                  
-SAP_data_occupation <- summarized_dataset$SAP_mean_pkt_size * summarized_dataset$SAP_total_packets                 
-sFlow_data_occupation <- summarized_dataset$sFlow_mean_pkt_size * summarized_dataset$sFlow_total_packets
-Signal_data_occupation <- summarized_dataset$Signal_mean_pkt_size * summarized_dataset$Signal_total_packets
-Sina_Weibo_data_occupation <- summarized_dataset$`Sina(Weibo)_mean_pkt_size` * summarized_dataset$`Sina(Weibo)_total_packets`
-SIP_data_occupation <- summarized_dataset$SIP_mean_pkt_size * summarized_dataset$SIP_total_packets                  
-Skype_data_occupation <- summarized_dataset$Skype_mean_pkt_size * summarized_dataset$Skype_total_packets
-SkypeCall_data_occupation <- summarized_dataset$SkypeCall_mean_pkt_size * summarized_dataset$Skype_total_packets
-Slack_data_occupation <- summarized_dataset$Slack_mean_pkt_size * summarized_dataset$Slack_total_packets
-SMBv1_data_occupation <- summarized_dataset$SMBv1_mean_pkt_size * summarized_dataset$SMBv1_total_packets
-SMBv23_data_occupation <- summarized_dataset$SMBv23_mean_pkt_size * summarized_dataset$SMBv23_total_packets
-SMTP_data_occupation <- summarized_dataset$SMTP_mean_pkt_size * summarized_dataset$SMTP_total_packets                 
-SMTPS_data_occupation <- summarized_dataset$SMTPS_mean_pkt_size * summarized_dataset$SMTPS_total_packets
-Snapchat_data_occupation <- summarized_dataset$Snapchat_mean_pkt_size * summarized_dataset$Snapchat_total_packets
-SNMP_data_occupation <- summarized_dataset$SNMP_mean_pkt_size * summarized_dataset$SNMP_total_packets
-SOCKS_data_occupation <- summarized_dataset$SOCKS_mean_pkt_size * summarized_dataset$SOCKS_total_packets
-SOMEIP_data_occupation <- summarized_dataset$SOMEIP_mean_pkt_size * summarized_dataset$SOMEIP_total_packets
-SoundCloud_data_occupation <- summarized_dataset$SoundCloud_mean_pkt_size * summarized_dataset$SoundCloud_total_packets
-Spotify_data_occupation <- summarized_dataset$Spotify_mean_pkt_size * summarized_dataset$Spotify_total_packets
-SSDP_data_occupation <- summarized_dataset$SSDP_mean_pkt_size * summarized_dataset$SSDP_total_packets
-SSH_data_occupation <- summarized_dataset$SSH_mean_pkt_size * summarized_dataset$SSH_total_packets
-Starcraft_data_occupation <- summarized_dataset$Starcraft_mean_pkt_size * summarized_dataset$Starcraft_total_packets
-Steam_data_occupation <- summarized_dataset$Steam_mean_pkt_size * summarized_dataset$Steam_total_packets
-STUN_data_occupation <- summarized_dataset$STUN_mean_pkt_size * summarized_dataset$STUN_total_packets                  
-Syslog_data_occupation <- summarized_dataset$Syslog_mean_pkt_size * summarized_dataset$Syslog_total_packets       
-Targus_Dataspeed_data_occupation <- summarized_dataset$`Targus Dataspeed_mean_pkt_size` * summarized_dataset$`Targus Dataspeed_total_packets`
-TeamViewer_data_occupation <- summarized_dataset$TeamViewer_mean_pkt_size * summarized_dataset$TeamViewer_total_packets
-Telegram_data_occupation <- summarized_dataset$Telegram_mean_pkt_size * summarized_dataset$Telegram_total_packets             
-Teredo_data_occupation <- summarized_dataset$Teredo_mean_pkt_size * summarized_dataset$Teredo_total_packets               
-TikTok_data_occupation <- summarized_dataset$TikTok_mean_pkt_size * summarized_dataset$TikTok_total_packets               
-TLS_data_occupation <- summarized_dataset$TLS_mean_pkt_size * summarized_dataset$TLS_total_packets                  
-Tor_data_occupation <- summarized_dataset$Tor_mean_pkt_size * summarized_dataset$Tor_total_packets                 
-Tuenti_data_occupation <- summarized_dataset$Tuenti_mean_pkt_size * summarized_dataset$Tuenti_total_packets               
-Twitch_data_occupation <- summarized_dataset$Twitch_mean_pkt_size * summarized_dataset$Twitch_total_packets              
-Twitter_data_occupation <- summarized_dataset$Twitter_mean_pkt_size * summarized_dataset$Twitter_total_packets              
-UBNTAC2_data_occupation <- summarized_dataset$UBNTAC2_mean_pkt_size * summarized_dataset$UBNTAC2_total_packets              
-UbuntuONE_data_occupation <- summarized_dataset$UbuntuONE_mean_pkt_size * summarized_dataset$UbuntuONE_total_packets     
-Unencrypted_Jabber_data_occupation <- summarized_dataset$Unencrypted_Jabber_mean_pkt_size * summarized_dataset$Unencrypted_Jabber_total_packets   
-Unknown_data_occupation <- summarized_dataset$Unknown_mean_pkt_size * summarized_dataset$Unknown_total_packets              
-UPnP_data_occupation <- summarized_dataset$UPnP_mean_pkt_size * summarized_dataset$UPnP_total_packets                 
-Viber_data_occupation <- summarized_dataset$Viber_mean_pkt_size * summarized_dataset$Viber_total_packets                
-VNC_data_occupation <- summarized_dataset$VNC_mean_pkt_size * summarized_dataset$VNC_total_packets                 
-Waze_data_occupation <- summarized_dataset$Waze_mean_pkt_size * summarized_dataset$Waze_total_packets                 
-Webex_data_occupation <- summarized_dataset$Webex_mean_pkt_size * summarized_dataset$Webex_total_packets                
-WeChat_data_occupation <- summarized_dataset$WeChat_mean_pkt_size * summarized_dataset$WeChat_total_packets               
-WhatsApp_data_occupation <- summarized_dataset$WhatsApp_mean_pkt_size * summarized_dataset$WhatsApp_total_packets           
-WhatsAppCall_data_occupation <- summarized_dataset$WhatsAppCall_mean_pkt_size * summarized_dataset$WhatsAppCall_total_packets         
-WhatsAppFiles_data_occupation <- summarized_dataset$WhatsAppFiles_mean_pkt_size * summarized_dataset$WhatsAppFiles_total_packets
-Whois-DAS_data_occupation <- summarized_dataset$`Whois-DAS_mean_pkt_size` * summarized_dataset$`Whois-DAS_total_packets`            
-Wikipedia_data_occupation <- summarized_dataset$Wikipedia_mean_pkt_size * summarized_dataset$Wikipedia_total_packets         
-WindowsUpdate_data_occupation <- summarized_dataset$WindowsUpdate_mean_pkt_size * summarized_dataset$WindowsUpdate_total_packets
-Xbox_data_occupation <- summarized_dataset$Xbox_mean_pkt_size * summarized_dataset$Xbox_total_packets                 
-Yahoo_data_occupation <- summarized_dataset$Yahoo_mean_pkt_size * summarized_dataset$Yahoo_total_packets               
-YouTube_data_occupation <- summarized_dataset$YouTube_mean_pkt_size * summarized_dataset$YouTube_total_packets 
-Zoom_data_occupation <- summarized_dataset$Zoom_mean_pkt_size * summarized_dataset$Zoom_total_packets
+# AJP_data_occupation <- summarized_dataset$AJP_mean_pkt_size * summarized_dataset$AJP_total_packets
+# Amazon_data_occupation <- summarized_dataset$Amazon_mean_pkt_size * summarized_dataset$Amazon_total_packets
+# AmazonVideo_data_occupation <- summarized_dataset$AmazonVideo_mean_pkt_size * summarized_dataset$AmazonVideo_total_packets          
+# Apple_data_occupation <- summarized_dataset$Apple_mean_pkt_size * summarized_dataset$Apple_total_packets                
+# AppleiCloud_data_occupation <- summarized_dataset$AppleiCloud_mean_pkt_size * summarized_dataset$AppleiCloud_total_packets          
+# AppleiTunes_data_occupation <- summarized_dataset$AppleiTunes_mean_pkt_size * summarized_dataset$AppleiTunes_total_packets          
+# ApplePush_data_occupation <- summarized_dataset$ApplePush_mean_pkt_size * summarized_dataset$ApplePush_total_packets           
+# AppleStore_data_occupation <- summarized_dataset$AppleStore_mean_pkt_size * summarized_dataset$AppleStore_total_packets           
+# BGP_data_occupation <- summarized_dataset$BGP_mean_pkt_size * summarized_dataset$BGP_total_packets                  
+# BitTorrent_data_occupation <- summarized_dataset$BitTorrent_mean_pkt_size * summarized_dataset$BitTorrent_total_packets           
+# BJNP_data_occupation <- summarized_dataset$BJNP_mean_pkt_size * summarized_dataset$BJNP_total_packets                 
+# CiscoSkinny_data_occupation <- summarized_dataset$CiscoSkinny_mean_pkt_size * summarized_dataset$CiscoSkinny_total_packets          
+# CiscoVPN_data_occupation <- summarized_dataset$CiscoVPN_mean_pkt_size * summarized_dataset$CiscoVPN_total_packets             
+# Citrix_data_occupation <- summarized_dataset$Citrix_mean_pkt_size * summarized_dataset$Citrix_total_packets               
+# Cloudflare_data_occupation <- summarized_dataset$Cloudflare_mean_pkt_size * summarized_dataset$Cloudflare_total_packets          
+# CNN_data_occupation <- summarized_dataset$CNN_mean_pkt_size * summarized_dataset$CNN_total_packets                  
+# DataSaver_data_occupation <- summarized_dataset$DataSaver_mean_pkt_size * summarized_dataset$DataSaver_total_packets            
+# Deezer_data_occupation <- summarized_dataset$Deezer_mean_pkt_size * summarized_dataset$Deezer_total_packets             
+# DHCP_data_occupation <- summarized_dataset$DHCP_mean_pkt_size * summarized_dataset$DHCP_total_packets                 
+# Direct_Download_Link_data_occupation <- summarized_dataset$Direct_Download_Link_mean_pkt_size * summarized_dataset$Direct_Download_Link_total_packets
+# DNP3_data_occupation <- summarized_dataset$DNP3_mean_pkt_size * summarized_dataset$DNP3_total_packets
+# DNS_data_occupation <- summarized_dataset$DNS_mean_pkt_size * summarized_dataset$DNS_total_packets
+# DNSoverHTTPS_data_occupation <- summarized_dataset$DNSoverHTTPS_mean_pkt_size * summarized_dataset$DNSoverHTTPS_total_packets
+# Dropbox_data_occupation <- summarized_dataset$Dropbox_mean_pkt_size * summarized_dataset$Dropbox_total_packets
+# eBay_data_occupation <- summarized_dataset$eBay_mean_pkt_size * summarized_dataset$eBay_total_packets
+# eDonkey_data_occupation <- summarized_dataset$eDonkey_mean_pkt_size * summarized_dataset$eDonkey_total_packets
+# Facebook_data_occupation <- summarized_dataset$Facebook_mean_pkt_size * summarized_dataset$Facebook_total_packets            
+# FTP_CONTROL_total_packet <- summarized_dataset$FTP_CONTROL_mean_pkt_size * summarized_dataset$FTP_CONTROL_total_packets         
+# FTP_DATA_total_packet <- summarized_dataset$FTP_DATA_mean_pkt_size * summarized_dataset$FTP_DATA_total_packets            
+# Github_data_occupation <- summarized_dataset$Github_mean_pkt_size * summarized_dataset$Github_total_packets            
+# GMail_data_occupation <- summarized_dataset$GMail_mean_pkt_size * summarized_dataset$GMail_total_packets              
+# Google_data_occupation <- summarized_dataset$Google_mean_pkt_size * summarized_dataset$Google_total_packets              
+# GoogleDocs_data_occupation <- summarized_dataset$GoogleDocs_mean_pkt_size * summarized_dataset$GoogleDocs_total_packets           
+# GoogleDrive_data_occupation <- summarized_dataset$GoogleDrive_mean_pkt_size * summarized_dataset$GoogleDrive_total_packets          
+# GoogleHangoutDuo_data_occupation <- summarized_dataset$GoogleHangoutDuo_mean_pkt_size * summarized_dataset$GoogleHangoutDuo_total_packets     
+# GoogleMaps_data_occupation <- summarized_dataset$GoogleMaps_mean_pkt_size * summarized_dataset$GoogleMaps_total_packets          
+# GooglePlus_data_occupation <- summarized_dataset$GooglePlus_mean_pkt_size * summarized_dataset$GooglePlus_total_packets          
+# GoogleServices_data_occupation <- summarized_dataset$GoogleServices_mean_pkt_size * summarized_dataset$GoogleServices_total_packets      
+# GTP_data_occupation <- summarized_dataset$GTP_mean_pkt_size * summarized_dataset$GTP_total_packets               
+# H323_data_occupation <- summarized_dataset$H323_mean_pkt_size * summarized_dataset$H323_total_packets              
+# HotspotShield_data_occupation <- summarized_dataset$HotspotShield_mean_pkt_size * summarized_dataset$HotspotShield_total_packets       
+# HTTP_data_occupation <- summarized_dataset$HTTP_mean_pkt_size * summarized_dataset$HTTP_total_packets                 
+# HTTP_Proxy_data_occupation <- summarized_dataset$HTTP_Proxy_mean_pkt_size * summarized_dataset$HTTP_Proxy_total_packets          
+# IAX_data_occupation <- summarized_dataset$IAX_mean_pkt_size * summarized_dataset$IAX_total_packets                  
+# ICMP_data_occupation <- summarized_dataset$ICMP_mean_pkt_size * summarized_dataset$ICMP_total_packets               
+# IMAPS_data_occupation <- summarized_dataset$IMAPS_mean_pkt_size * summarized_dataset$IMAPS_total_packets               
+# IMO_data_occupation <- summarized_dataset$IMO_mean_pkt_size * summarized_dataset$IMO_total_packets                 
+# Instagram_data_occupation <- summarized_dataset$Instagram_mean_pkt_size * summarized_dataset$Instagram_total_packets            
+# IPsec_data_occupation <- summarized_dataset$IPsec_mean_pkt_size * summarized_dataset$IPsec_total_packets                
+# IRC_data_occupation <- summarized_dataset$IRC_mean_pkt_size * summarized_dataset$IRC_total_packets                  
+# LDAP_data_occupation <- summarized_dataset$LDAP_mean_pkt_size * summarized_dataset$LDAP_total_packets                
+# LinkedIn_data_occupation <- summarized_dataset$LinkedIn_mean_pkt_size * summarized_dataset$LinkedIn_total_packets           
+# LotusNotes_data_occupation <- summarized_dataset$LotusNotes_mean_pkt_size * summarized_dataset$LotusNotes_total_packets           
+# MDNS_data_occupation <- summarized_dataset$MDNS_mean_pkt_size * summarized_dataset$MDNS_total_packets                 
+# Messenger_data_occupation <- summarized_dataset$Messenger_mean_pkt_size * summarized_dataset$Messenger_total_packets          
+# Microsoft_data_occupation <- summarized_dataset$Microsoft_mean_pkt_size * summarized_dataset$Microsoft_total_packets            
+# Mining_data_occupation <- summarized_dataset$Mining_mean_pkt_size * summarized_dataset$Mining_total_packets              
+# MQTT_data_occupation <- summarized_dataset$MQTT_mean_pkt_size * summarized_dataset$MQTT_total_packets                
+# MS_OneDrive_data_occupation <- summarized_dataset$MS_OneDrive_mean_pkt_size * summarized_dataset$MS_OneDrive_total_packets        
+# MSN_data_occupation <- summarized_dataset$MSN_mean_pkt_size * summarized_dataset$MSN_total_packets             
+# MsSQL-TDS_data_occupation <- summarized_dataset$`MsSQL-TDS_mean_pkt_size` * summarized_dataset$`MsSQL-TDS_total_packets`          
+# MySQL_data_occupation <- summarized_dataset$MySQL_mean_pkt_size * summarized_dataset$MySQL_total_packets              
+# NestLogSink_data_occupation <- summarized_dataset$NestLogSink_mean_pkt_size * summarized_dataset$NestLogSink_total_packets        
+# NetBIOS_data_occupation <- summarized_dataset$NetBIOS_mean_pkt_size * summarized_dataset$NetBIOS_total_packets             
+# NetFlix_data_occupation <- summarized_dataset$NetFlix_mean_pkt_size * summarized_dataset$NetFlix_total_packets            
+# NFS_data_occupation <- summarized_dataset$NFS_mean_pkt_size * summarized_dataset$NFS_total_packets                
+# NTP_data_occupation <- summarized_dataset$NTP_mean_pkt_size * summarized_dataset$NTP_total_packets
+# Office365_data_occupation <- summarized_dataset$Office365_mean_pkt_size * summarized_dataset$Office365_total_packets          
+# Ookla_data_occupation <- summarized_dataset$Ookla_mean_pkt_size * summarized_dataset$Ookla_total_packets               
+# OpenDNS_data_occupation <- summarized_dataset$OpenDNS_mean_pkt_size * summarized_dataset$OpenDNS_total_packets             
+# OpenVPN_data_occupation <- summarized_dataset$OpenVPN_mean_pkt_size * summarized_dataset$OpenVPN_total_packets             
+# Oracle_data_occupation <- summarized_dataset$Oracle_mean_pkt_size * summarized_dataset$Oracle_total_packets    
+# Pando_Media_Booster_data_occupation <- summarized_dataset$Pando_Media_Booster_mean_pkt_size * summarized_dataset$Pando_Media_Booster_total_packets 
+# Playstation_data_occupation <- summarized_dataset$Playstation_mean_pkt_size * summarized_dataset$Playstation_total_packets          
+# PlayStore_data_occupation <- summarized_dataset$PlayStore_mean_pkt_size * summarized_dataset$PlayStore_total_packets            
+# POP3_data_occupation <- summarized_dataset$POP3_mean_pkt_size * summarized_dataset$POP3_total_packets             
+# PostgreSQL_data_occupation <- summarized_dataset$PostgreSQL_mean_pkt_size * summarized_dataset$PostgreSQL_total_packets           
+# PS_VUE_data_occupation <- summarized_dataset$PS_VUE_mean_pkt_size * summarized_dataset$PS_VUE_total_packets               
+# QQ_data_occupation <- summarized_dataset$QQ_mean_pkt_size * summarized_dataset$QQ_total_packets                  
+# QUIC_data_occupation <- summarized_dataset$QUIC_mean_pkt_size * summarized_dataset$QUIC_total_packets                 
+# Radius_data_occupation <- summarized_dataset$Radius_mean_pkt_size * summarized_dataset$Radius_total_packets               
+# RDP_data_occupation <- summarized_dataset$RDP_mean_pkt_size * summarized_dataset$RDP_total_packets                  
+# RTMP_data_occupation <- summarized_dataset$RTMP_mean_pkt_size * summarized_dataset$RTMP_total_packets                 
+# RTP_data_occupation <- summarized_dataset$RTP_mean_pkt_size * summarized_dataset$RTP_total_packets
+# RTSP_data_occupation <- summarized_dataset$RTSP_mean_pkt_size * summarized_dataset$RTSP_total_packets
+# RX_data_occupation <- summarized_dataset$RX_mean_pkt_size * summarized_dataset$RX_total_packets                  
+# SAP_data_occupation <- summarized_dataset$SAP_mean_pkt_size * summarized_dataset$SAP_total_packets                 
+# sFlow_data_occupation <- summarized_dataset$sFlow_mean_pkt_size * summarized_dataset$sFlow_total_packets
+# Signal_data_occupation <- summarized_dataset$Signal_mean_pkt_size * summarized_dataset$Signal_total_packets
+# Sina_Weibo_data_occupation <- summarized_dataset$`Sina(Weibo)_mean_pkt_size` * summarized_dataset$`Sina(Weibo)_total_packets`
+# SIP_data_occupation <- summarized_dataset$SIP_mean_pkt_size * summarized_dataset$SIP_total_packets                  
+# Skype_data_occupation <- summarized_dataset$Skype_mean_pkt_size * summarized_dataset$Skype_total_packets
+# SkypeCall_data_occupation <- summarized_dataset$SkypeCall_mean_pkt_size * summarized_dataset$Skype_total_packets
+# Slack_data_occupation <- summarized_dataset$Slack_mean_pkt_size * summarized_dataset$Slack_total_packets
+# SMBv1_data_occupation <- summarized_dataset$SMBv1_mean_pkt_size * summarized_dataset$SMBv1_total_packets
+# SMBv23_data_occupation <- summarized_dataset$SMBv23_mean_pkt_size * summarized_dataset$SMBv23_total_packets
+# SMTP_data_occupation <- summarized_dataset$SMTP_mean_pkt_size * summarized_dataset$SMTP_total_packets                 
+# SMTPS_data_occupation <- summarized_dataset$SMTPS_mean_pkt_size * summarized_dataset$SMTPS_total_packets
+# Snapchat_data_occupation <- summarized_dataset$Snapchat_mean_pkt_size * summarized_dataset$Snapchat_total_packets
+# SNMP_data_occupation <- summarized_dataset$SNMP_mean_pkt_size * summarized_dataset$SNMP_total_packets
+# SOCKS_data_occupation <- summarized_dataset$SOCKS_mean_pkt_size * summarized_dataset$SOCKS_total_packets
+# SOMEIP_data_occupation <- summarized_dataset$SOMEIP_mean_pkt_size * summarized_dataset$SOMEIP_total_packets
+# SoundCloud_data_occupation <- summarized_dataset$SoundCloud_mean_pkt_size * summarized_dataset$SoundCloud_total_packets
+# Spotify_data_occupation <- summarized_dataset$Spotify_mean_pkt_size * summarized_dataset$Spotify_total_packets
+# SSDP_data_occupation <- summarized_dataset$SSDP_mean_pkt_size * summarized_dataset$SSDP_total_packets
+# SSH_data_occupation <- summarized_dataset$SSH_mean_pkt_size * summarized_dataset$SSH_total_packets
+# Starcraft_data_occupation <- summarized_dataset$Starcraft_mean_pkt_size * summarized_dataset$Starcraft_total_packets
+# Steam_data_occupation <- summarized_dataset$Steam_mean_pkt_size * summarized_dataset$Steam_total_packets
+# STUN_data_occupation <- summarized_dataset$STUN_mean_pkt_size * summarized_dataset$STUN_total_packets                  
+# Syslog_data_occupation <- summarized_dataset$Syslog_mean_pkt_size * summarized_dataset$Syslog_total_packets       
+# Targus_Dataspeed_data_occupation <- summarized_dataset$`Targus Dataspeed_mean_pkt_size` * summarized_dataset$`Targus Dataspeed_total_packets`
+# TeamViewer_data_occupation <- summarized_dataset$TeamViewer_mean_pkt_size * summarized_dataset$TeamViewer_total_packets
+# Telegram_data_occupation <- summarized_dataset$Telegram_mean_pkt_size * summarized_dataset$Telegram_total_packets             
+# Teredo_data_occupation <- summarized_dataset$Teredo_mean_pkt_size * summarized_dataset$Teredo_total_packets               
+# TikTok_data_occupation <- summarized_dataset$TikTok_mean_pkt_size * summarized_dataset$TikTok_total_packets               
+# TLS_data_occupation <- summarized_dataset$TLS_mean_pkt_size * summarized_dataset$TLS_total_packets                  
+# Tor_data_occupation <- summarized_dataset$Tor_mean_pkt_size * summarized_dataset$Tor_total_packets                 
+# Tuenti_data_occupation <- summarized_dataset$Tuenti_mean_pkt_size * summarized_dataset$Tuenti_total_packets               
+# Twitch_data_occupation <- summarized_dataset$Twitch_mean_pkt_size * summarized_dataset$Twitch_total_packets              
+# Twitter_data_occupation <- summarized_dataset$Twitter_mean_pkt_size * summarized_dataset$Twitter_total_packets              
+# UBNTAC2_data_occupation <- summarized_dataset$UBNTAC2_mean_pkt_size * summarized_dataset$UBNTAC2_total_packets              
+# UbuntuONE_data_occupation <- summarized_dataset$UbuntuONE_mean_pkt_size * summarized_dataset$UbuntuONE_total_packets     
+# Unencrypted_Jabber_data_occupation <- summarized_dataset$Unencrypted_Jabber_mean_pkt_size * summarized_dataset$Unencrypted_Jabber_total_packets   
+# Unknown_data_occupation <- summarized_dataset$Unknown_mean_pkt_size * summarized_dataset$Unknown_total_packets              
+# UPnP_data_occupation <- summarized_dataset$UPnP_mean_pkt_size * summarized_dataset$UPnP_total_packets                 
+# Viber_data_occupation <- summarized_dataset$Viber_mean_pkt_size * summarized_dataset$Viber_total_packets                
+# VNC_data_occupation <- summarized_dataset$VNC_mean_pkt_size * summarized_dataset$VNC_total_packets                 
+# Waze_data_occupation <- summarized_dataset$Waze_mean_pkt_size * summarized_dataset$Waze_total_packets                 
+# Webex_data_occupation <- summarized_dataset$Webex_mean_pkt_size * summarized_dataset$Webex_total_packets                
+# WeChat_data_occupation <- summarized_dataset$WeChat_mean_pkt_size * summarized_dataset$WeChat_total_packets               
+# WhatsApp_data_occupation <- summarized_dataset$WhatsApp_mean_pkt_size * summarized_dataset$WhatsApp_total_packets           
+# WhatsAppCall_data_occupation <- summarized_dataset$WhatsAppCall_mean_pkt_size * summarized_dataset$WhatsAppCall_total_packets         
+# WhatsAppFiles_data_occupation <- summarized_dataset$WhatsAppFiles_mean_pkt_size * summarized_dataset$WhatsAppFiles_total_packets
+# Whois-DAS_data_occupation <- summarized_dataset$`Whois-DAS_mean_pkt_size` * summarized_dataset$`Whois-DAS_total_packets`            
+# Wikipedia_data_occupation <- summarized_dataset$Wikipedia_mean_pkt_size * summarized_dataset$Wikipedia_total_packets         
+# WindowsUpdate_data_occupation <- summarized_dataset$WindowsUpdate_mean_pkt_size * summarized_dataset$WindowsUpdate_total_packets
+# Xbox_data_occupation <- summarized_dataset$Xbox_mean_pkt_size * summarized_dataset$Xbox_total_packets                 
+# Yahoo_data_occupation <- summarized_dataset$Yahoo_mean_pkt_size * summarized_dataset$Yahoo_total_packets               
+# YouTube_data_occupation <- summarized_dataset$YouTube_mean_pkt_size * summarized_dataset$YouTube_total_packets 
+# Zoom_data_occupation <- summarized_dataset$Zoom_mean_pkt_size * summarized_dataset$Zoom_total_packets
 
 # Join all the columns
-rm(final_dataset)
-final_dataset <- cbind(src_ip_numeric)
+final_dataset <- cbind(summarized_dataset[,c(1:2)])
 final_dataset <- as.data.frame(final_dataset)
-final_dataset[, c("src_ip")] <- numeric_to_ip(final_dataset[, c("src_ip_numeric")])
+#final_dataset[, c("src_ip")] <- numeric_to_ip(final_dataset[, c("src_ip_numeric")])
 
 
 # Joining Time Occupation columns
+final_dataset <- cbind(final_dataset, `104_time_occupation`)
 final_dataset <- cbind(final_dataset, AJP_time_occupation)
 final_dataset <- cbind(final_dataset, Amazon_time_occupation)
 final_dataset <- cbind(final_dataset, AmazonVideo_time_occupation)
@@ -789,7 +787,7 @@ final_dataset <- cbind(final_dataset, Mining_time_occupation)
 final_dataset <- cbind(final_dataset, MQTT_time_occupation)
 final_dataset <- cbind(final_dataset, MS_OneDrive_time_occupation)
 final_dataset <- cbind(final_dataset, MSN_time_occupation)
-final_dataset <- cbind(final_dataset, MsSQL-TDS_time_occupation)
+final_dataset <- cbind(final_dataset, `MsSQL-TDS_time_occupation`)
 final_dataset <- cbind(final_dataset, MySQL_time_occupation)
 final_dataset <- cbind(final_dataset, NestLogSink_time_occupation)
 final_dataset <- cbind(final_dataset, NetBIOS_time_occupation)
@@ -862,7 +860,7 @@ final_dataset <- cbind(final_dataset, WeChat_time_occupation)
 final_dataset <- cbind(final_dataset, WhatsApp_time_occupation)
 final_dataset <- cbind(final_dataset, WhatsAppCall_time_occupation)
 final_dataset <- cbind(final_dataset, WhatsAppFiles_time_occupation)
-final_dataset <- cbind(final_dataset, Whois-DAS_time_occupation)
+final_dataset <- cbind(final_dataset, `Whois-DAS_time_occupation`)
 final_dataset <- cbind(final_dataset, Wikipedia_time_occupation)
 final_dataset <- cbind(final_dataset, WindowsUpdate_time_occupation)
 final_dataset <- cbind(final_dataset, Xbox_time_occupation)
@@ -871,159 +869,159 @@ final_dataset <- cbind(final_dataset, YouTube_time_occupation)
 final_dataset <- cbind(final_dataset, Zoom_time_occupation)
 
 # Joining Data Occupation columns
-final_dataset <- cbind(final_dataset, AJP_data_occupation)
-final_dataset <- cbind(final_dataset, Amazon_data_occupation)
-final_dataset <- cbind(final_dataset, AmazonVideo_data_occupation)
-final_dataset <- cbind(final_dataset, Apple_data_occupation)
-final_dataset <- cbind(final_dataset, AppleiCloud_data_occupation)
-final_dataset <- cbind(final_dataset, AppleiTunes_data_occupation)
-final_dataset <- cbind(final_dataset, ApplePush_data_occupation)
-final_dataset <- cbind(final_dataset, AppleStore_data_occupation)
-final_dataset <- cbind(final_dataset, BGP_data_occupation)
-final_dataset <- cbind(final_dataset, BitTorrent_data_occupation)
-final_dataset <- cbind(final_dataset, BJNP_data_occupation)
-final_dataset <- cbind(final_dataset, CiscoSkinny_data_occupation)
-final_dataset <- cbind(final_dataset, CiscoVPN_data_occupation)
-final_dataset <- cbind(final_dataset, Citrix_data_occupation)
-final_dataset <- cbind(final_dataset, Cloudflare_data_occupation)
-final_dataset <- cbind(final_dataset, CNN_data_occupation)
-final_dataset <- cbind(final_dataset, DataSaver_data_occupation)
-final_dataset <- cbind(final_dataset, Deezer_data_occupation)
-final_dataset <- cbind(final_dataset, DHCP_data_occupation)
-final_dataset <- cbind(final_dataset, Direct_Download_Link_data_occupation)
-final_dataset <- cbind(final_dataset, DNP3_data_occupation)
-final_dataset <- cbind(final_dataset, DNS_data_occupation)
-final_dataset <- cbind(final_dataset, DNSoverHTTPS_data_occupation)
-final_dataset <- cbind(final_dataset, Dropbox_data_occupation)
-final_dataset <- cbind(final_dataset, eBay_data_occupation)
-final_dataset <- cbind(final_dataset, eDonkey_data_occupation)
-final_dataset <- cbind(final_dataset, Facebook_data_occupation)
-final_dataset <- cbind(final_dataset, FTP_CONTROL_data_occupation)
-final_dataset <- cbind(final_dataset, FTP_DATA_data_occupation)
-final_dataset <- cbind(final_dataset, Github_data_occupation)
-final_dataset <- cbind(final_dataset, GMail_data_occupation)
-final_dataset <- cbind(final_dataset, Google_data_occupation)
-final_dataset <- cbind(final_dataset, GoogleDocs_data_occupation)
-final_dataset <- cbind(final_dataset, GoogleDrive_data_occupation)
-final_dataset <- cbind(final_dataset, GoogleHangoutDuo_data_occupation)
-final_dataset <- cbind(final_dataset, GoogleMaps_data_occupation)
-final_dataset <- cbind(final_dataset, GooglePlus_data_occupation)
-final_dataset <- cbind(final_dataset, GoogleServices_data_occupation)
-final_dataset <- cbind(final_dataset, GTP_data_occupation)
-final_dataset <- cbind(final_dataset, H323_data_occupation)
-final_dataset <- cbind(final_dataset, HotspotShield_data_occupation)
-final_dataset <- cbind(final_dataset, HTTP_data_occupation)
-final_dataset <- cbind(final_dataset, HTTP_Proxy_data_occupation)
-final_dataset <- cbind(final_dataset, IAX_data_occupation)
-final_dataset <- cbind(final_dataset, ICMP_data_occupation)
-final_dataset <- cbind(final_dataset, IMAPS_data_occupation)
-final_dataset <- cbind(final_dataset, IMO_data_occupation)
-final_dataset <- cbind(final_dataset, Instagram_data_occupation)
-final_dataset <- cbind(final_dataset, IPsec_data_occupation)
-final_dataset <- cbind(final_dataset, IRC_data_occupation)
-final_dataset <- cbind(final_dataset, LDAP_data_occupation)
-final_dataset <- cbind(final_dataset, LinkedIn_data_occupation)
-final_dataset <- cbind(final_dataset, LotusNotes_data_occupation)
-final_dataset <- cbind(final_dataset, MDNS_data_occupation)
-final_dataset <- cbind(final_dataset, Messenger_data_occupation)
-final_dataset <- cbind(final_dataset, Microsoft_data_occupation)
-final_dataset <- cbind(final_dataset, Mining_data_occupation)
-final_dataset <- cbind(final_dataset, MQTT_data_occupation)
-final_dataset <- cbind(final_dataset, MS_OneDrive_data_occupation)
-final_dataset <- cbind(final_dataset, MSN_data_occupation)
-final_dataset <- cbind(final_dataset, MsSQL-TDS_data_occupation)
-final_dataset <- cbind(final_dataset, MySQL_data_occupation)
-final_dataset <- cbind(final_dataset, NestLogSink_data_occupation)
-final_dataset <- cbind(final_dataset, NetBIOS_data_occupation)
-final_dataset <- cbind(final_dataset, NetFlix_data_occupation)
-final_dataset <- cbind(final_dataset, NFS_data_occupation)
-final_dataset <- cbind(final_dataset, NTP_data_occupation)
-final_dataset <- cbind(final_dataset, Office365_data_occupation)
-final_dataset <- cbind(final_dataset, Ookla_data_occupation)
-final_dataset <- cbind(final_dataset, OpenDNS_data_occupation)
-final_dataset <- cbind(final_dataset, OpenVPN_data_occupation)
-final_dataset <- cbind(final_dataset, Oracle_data_occupation)
-final_dataset <- cbind(final_dataset, Pando_Media_Booster_data_occupation)
-final_dataset <- cbind(final_dataset, Playstation_data_occupation)
-final_dataset <- cbind(final_dataset, PlayStore_data_occupation)
-final_dataset <- cbind(final_dataset, POP3_data_occupation)
-final_dataset <- cbind(final_dataset, PostgreSQL_data_occupation)
-final_dataset <- cbind(final_dataset, PS_VUE_data_occupation)
-final_dataset <- cbind(final_dataset, QQ_data_occupation)
-final_dataset <- cbind(final_dataset, QUIC_data_occupation)
-final_dataset <- cbind(final_dataset, Radius_data_occupation)
-final_dataset <- cbind(final_dataset, RDP_data_occupation)
-final_dataset <- cbind(final_dataset, RTMP_data_occupation)
-final_dataset <- cbind(final_dataset, RTP_data_occupation)
-final_dataset <- cbind(final_dataset, RTSP_data_occupation)
-final_dataset <- cbind(final_dataset, RX_data_occupation)
-final_dataset <- cbind(final_dataset, SAP_data_occupation)
-final_dataset <- cbind(final_dataset, sFlow_data_occupation)
-final_dataset <- cbind(final_dataset, Signal_data_occupation)
-final_dataset <- cbind(final_dataset, Sina_Weibo_data_occupation)
-final_dataset <- cbind(final_dataset, SIP_data_occupation)
-final_dataset <- cbind(final_dataset, Skype_data_occupation)
-final_dataset <- cbind(final_dataset, SkypeCall_data_occupation)
-final_dataset <- cbind(final_dataset, Slack_data_occupation)
-final_dataset <- cbind(final_dataset, SMBv1_data_occupation)
-final_dataset <- cbind(final_dataset, SMBv23_data_occupation)
-final_dataset <- cbind(final_dataset, SMTP_data_occupation)
-final_dataset <- cbind(final_dataset, SMTPS_data_occupation)
-final_dataset <- cbind(final_dataset, Snapchat_data_occupation)
-final_dataset <- cbind(final_dataset, SNMP_data_occupation)
-final_dataset <- cbind(final_dataset, SOCKS_data_occupation)
-final_dataset <- cbind(final_dataset, SOMEIP_data_occupation)
-final_dataset <- cbind(final_dataset, SoundCloud_data_occupation)
-final_dataset <- cbind(final_dataset, Spotify_data_occupation)
-final_dataset <- cbind(final_dataset, SSDP_data_occupation)
-final_dataset <- cbind(final_dataset, SSH_data_occupation)
-final_dataset <- cbind(final_dataset, Starcraft_data_occupation)
-final_dataset <- cbind(final_dataset, Steam_data_occupation)
-final_dataset <- cbind(final_dataset, STUN_data_occupation)
-final_dataset <- cbind(final_dataset, Syslog_data_occupation)
-final_dataset <- cbind(final_dataset, Targus_Dataspeed_data_occupation)
-final_dataset <- cbind(final_dataset, TeamViewer_data_occupation)
-final_dataset <- cbind(final_dataset, Telegram_data_occupation)
-final_dataset <- cbind(final_dataset, Teredo_data_occupation)
-final_dataset <- cbind(final_dataset, TikTok_data_occupation)
-final_dataset <- cbind(final_dataset, TLS_data_occupation)
-final_dataset <- cbind(final_dataset, Tor_data_occupation)
-final_dataset <- cbind(final_dataset, Tuenti_data_occupation)
-final_dataset <- cbind(final_dataset, Twitch_data_occupation)
-final_dataset <- cbind(final_dataset, Twitter_data_occupation)
-final_dataset <- cbind(final_dataset, UBNTAC2_data_occupation)
-final_dataset <- cbind(final_dataset, UbuntuONE_data_occupation)
-final_dataset <- cbind(final_dataset, Unencrypted_Jabber_data_occupation)
-final_dataset <- cbind(final_dataset, Unknown_data_occupation)
-final_dataset <- cbind(final_dataset, UPnP_data_occupation)
-final_dataset <- cbind(final_dataset, Viber_data_occupation)
-final_dataset <- cbind(final_dataset, VNC_data_occupation)
-final_dataset <- cbind(final_dataset, Waze_data_occupation)
-final_dataset <- cbind(final_dataset, Webex_data_occupation)
-final_dataset <- cbind(final_dataset, WeChat_data_occupation)
-final_dataset <- cbind(final_dataset, WhatsApp_data_occupation)
-final_dataset <- cbind(final_dataset, WhatsAppCall_data_occupation)
-final_dataset <- cbind(final_dataset, WhatsAppFiles_data_occupation)
-final_dataset <- cbind(final_dataset, Whois-DAS_data_occupation)
-final_dataset <- cbind(final_dataset, Wikipedia_data_occupation)
-final_dataset <- cbind(final_dataset, WindowsUpdate_data_occupation)
-final_dataset <- cbind(final_dataset, Xbox_data_occupation)
-final_dataset <- cbind(final_dataset, Yahoo_data_occupation)
-final_dataset <- cbind(final_dataset, YouTube_data_occupation)
-final_dataset <- cbind(final_dataset, Zoom_data_occupation)
+final_dataset <- cbind(final_dataset, summarized_dataset[,c(144:284)])
+
+# final_dataset <- cbind(final_dataset, AJP_data_occupation)
+# final_dataset <- cbind(final_dataset, Amazon_data_occupation)
+# final_dataset <- cbind(final_dataset, AmazonVideo_data_occupation)
+# final_dataset <- cbind(final_dataset, Apple_data_occupation)
+# final_dataset <- cbind(final_dataset, AppleiCloud_data_occupation)
+# final_dataset <- cbind(final_dataset, AppleiTunes_data_occupation)
+# final_dataset <- cbind(final_dataset, ApplePush_data_occupation)
+# final_dataset <- cbind(final_dataset, AppleStore_data_occupation)
+# final_dataset <- cbind(final_dataset, BGP_data_occupation)
+# final_dataset <- cbind(final_dataset, BitTorrent_data_occupation)
+# final_dataset <- cbind(final_dataset, BJNP_data_occupation)
+# final_dataset <- cbind(final_dataset, CiscoSkinny_data_occupation)
+# final_dataset <- cbind(final_dataset, CiscoVPN_data_occupation)
+# final_dataset <- cbind(final_dataset, Citrix_data_occupation)
+# final_dataset <- cbind(final_dataset, Cloudflare_data_occupation)
+# final_dataset <- cbind(final_dataset, CNN_data_occupation)
+# final_dataset <- cbind(final_dataset, DataSaver_data_occupation)
+# final_dataset <- cbind(final_dataset, Deezer_data_occupation)
+# final_dataset <- cbind(final_dataset, DHCP_data_occupation)
+# final_dataset <- cbind(final_dataset, Direct_Download_Link_data_occupation)
+# final_dataset <- cbind(final_dataset, DNP3_data_occupation)
+# final_dataset <- cbind(final_dataset, DNS_data_occupation)
+# final_dataset <- cbind(final_dataset, DNSoverHTTPS_data_occupation)
+# final_dataset <- cbind(final_dataset, Dropbox_data_occupation)
+# final_dataset <- cbind(final_dataset, eBay_data_occupation)
+# final_dataset <- cbind(final_dataset, eDonkey_data_occupation)
+# final_dataset <- cbind(final_dataset, Facebook_data_occupation)
+# final_dataset <- cbind(final_dataset, FTP_CONTROL_data_occupation)
+# final_dataset <- cbind(final_dataset, FTP_DATA_data_occupation)
+# final_dataset <- cbind(final_dataset, Github_data_occupation)
+# final_dataset <- cbind(final_dataset, GMail_data_occupation)
+# final_dataset <- cbind(final_dataset, Google_data_occupation)
+# final_dataset <- cbind(final_dataset, GoogleDocs_data_occupation)
+# final_dataset <- cbind(final_dataset, GoogleDrive_data_occupation)
+# final_dataset <- cbind(final_dataset, GoogleHangoutDuo_data_occupation)
+# final_dataset <- cbind(final_dataset, GoogleMaps_data_occupation)
+# final_dataset <- cbind(final_dataset, GooglePlus_data_occupation)
+# final_dataset <- cbind(final_dataset, GoogleServices_data_occupation)
+# final_dataset <- cbind(final_dataset, GTP_data_occupation)
+# final_dataset <- cbind(final_dataset, H323_data_occupation)
+# final_dataset <- cbind(final_dataset, HotspotShield_data_occupation)
+# final_dataset <- cbind(final_dataset, HTTP_data_occupation)
+# final_dataset <- cbind(final_dataset, HTTP_Proxy_data_occupation)
+# final_dataset <- cbind(final_dataset, IAX_data_occupation)
+# final_dataset <- cbind(final_dataset, ICMP_data_occupation)
+# final_dataset <- cbind(final_dataset, IMAPS_data_occupation)
+# final_dataset <- cbind(final_dataset, IMO_data_occupation)
+# final_dataset <- cbind(final_dataset, Instagram_data_occupation)
+# final_dataset <- cbind(final_dataset, IPsec_data_occupation)
+# final_dataset <- cbind(final_dataset, IRC_data_occupation)
+# final_dataset <- cbind(final_dataset, LDAP_data_occupation)
+# final_dataset <- cbind(final_dataset, LinkedIn_data_occupation)
+# final_dataset <- cbind(final_dataset, LotusNotes_data_occupation)
+# final_dataset <- cbind(final_dataset, MDNS_data_occupation)
+# final_dataset <- cbind(final_dataset, Messenger_data_occupation)
+# final_dataset <- cbind(final_dataset, Microsoft_data_occupation)
+# final_dataset <- cbind(final_dataset, Mining_data_occupation)
+# final_dataset <- cbind(final_dataset, MQTT_data_occupation)
+# final_dataset <- cbind(final_dataset, MS_OneDrive_data_occupation)
+# final_dataset <- cbind(final_dataset, MSN_data_occupation)
+# final_dataset <- cbind(final_dataset, MsSQL-TDS_data_occupation)
+# final_dataset <- cbind(final_dataset, MySQL_data_occupation)
+# final_dataset <- cbind(final_dataset, NestLogSink_data_occupation)
+# final_dataset <- cbind(final_dataset, NetBIOS_data_occupation)
+# final_dataset <- cbind(final_dataset, NetFlix_data_occupation)
+# final_dataset <- cbind(final_dataset, NFS_data_occupation)
+# final_dataset <- cbind(final_dataset, NTP_data_occupation)
+# final_dataset <- cbind(final_dataset, Office365_data_occupation)
+# final_dataset <- cbind(final_dataset, Ookla_data_occupation)
+# final_dataset <- cbind(final_dataset, OpenDNS_data_occupation)
+# final_dataset <- cbind(final_dataset, OpenVPN_data_occupation)
+# final_dataset <- cbind(final_dataset, Oracle_data_occupation)
+# final_dataset <- cbind(final_dataset, Pando_Media_Booster_data_occupation)
+# final_dataset <- cbind(final_dataset, Playstation_data_occupation)
+# final_dataset <- cbind(final_dataset, PlayStore_data_occupation)
+# final_dataset <- cbind(final_dataset, POP3_data_occupation)
+# final_dataset <- cbind(final_dataset, PostgreSQL_data_occupation)
+# final_dataset <- cbind(final_dataset, PS_VUE_data_occupation)
+# final_dataset <- cbind(final_dataset, QQ_data_occupation)
+# final_dataset <- cbind(final_dataset, QUIC_data_occupation)
+# final_dataset <- cbind(final_dataset, Radius_data_occupation)
+# final_dataset <- cbind(final_dataset, RDP_data_occupation)
+# final_dataset <- cbind(final_dataset, RTMP_data_occupation)
+# final_dataset <- cbind(final_dataset, RTP_data_occupation)
+# final_dataset <- cbind(final_dataset, RTSP_data_occupation)
+# final_dataset <- cbind(final_dataset, RX_data_occupation)
+# final_dataset <- cbind(final_dataset, SAP_data_occupation)
+# final_dataset <- cbind(final_dataset, sFlow_data_occupation)
+# final_dataset <- cbind(final_dataset, Signal_data_occupation)
+# final_dataset <- cbind(final_dataset, Sina_Weibo_data_occupation)
+# final_dataset <- cbind(final_dataset, SIP_data_occupation)
+# final_dataset <- cbind(final_dataset, Skype_data_occupation)
+# final_dataset <- cbind(final_dataset, SkypeCall_data_occupation)
+# final_dataset <- cbind(final_dataset, Slack_data_occupation)
+# final_dataset <- cbind(final_dataset, SMBv1_data_occupation)
+# final_dataset <- cbind(final_dataset, SMBv23_data_occupation)
+# final_dataset <- cbind(final_dataset, SMTP_data_occupation)
+# final_dataset <- cbind(final_dataset, SMTPS_data_occupation)
+# final_dataset <- cbind(final_dataset, Snapchat_data_occupation)
+# final_dataset <- cbind(final_dataset, SNMP_data_occupation)
+# final_dataset <- cbind(final_dataset, SOCKS_data_occupation)
+# final_dataset <- cbind(final_dataset, SOMEIP_data_occupation)
+# final_dataset <- cbind(final_dataset, SoundCloud_data_occupation)
+# final_dataset <- cbind(final_dataset, Spotify_data_occupation)
+# final_dataset <- cbind(final_dataset, SSDP_data_occupation)
+# final_dataset <- cbind(final_dataset, SSH_data_occupation)
+# final_dataset <- cbind(final_dataset, Starcraft_data_occupation)
+# final_dataset <- cbind(final_dataset, Steam_data_occupation)
+# final_dataset <- cbind(final_dataset, STUN_data_occupation)
+# final_dataset <- cbind(final_dataset, Syslog_data_occupation)
+# final_dataset <- cbind(final_dataset, Targus_Dataspeed_data_occupation)
+# final_dataset <- cbind(final_dataset, TeamViewer_data_occupation)
+# final_dataset <- cbind(final_dataset, Telegram_data_occupation)
+# final_dataset <- cbind(final_dataset, Teredo_data_occupation)
+# final_dataset <- cbind(final_dataset, TikTok_data_occupation)
+# final_dataset <- cbind(final_dataset, TLS_data_occupation)
+# final_dataset <- cbind(final_dataset, Tor_data_occupation)
+# final_dataset <- cbind(final_dataset, Tuenti_data_occupation)
+# final_dataset <- cbind(final_dataset, Twitch_data_occupation)
+# final_dataset <- cbind(final_dataset, Twitter_data_occupation)
+# final_dataset <- cbind(final_dataset, UBNTAC2_data_occupation)
+# final_dataset <- cbind(final_dataset, UbuntuONE_data_occupation)
+# final_dataset <- cbind(final_dataset, Unencrypted_Jabber_data_occupation)
+# final_dataset <- cbind(final_dataset, Unknown_data_occupation)
+# final_dataset <- cbind(final_dataset, UPnP_data_occupation)
+# final_dataset <- cbind(final_dataset, Viber_data_occupation)
+# final_dataset <- cbind(final_dataset, VNC_data_occupation)
+# final_dataset <- cbind(final_dataset, Waze_data_occupation)
+# final_dataset <- cbind(final_dataset, Webex_data_occupation)
+# final_dataset <- cbind(final_dataset, WeChat_data_occupation)
+# final_dataset <- cbind(final_dataset, WhatsApp_data_occupation)
+# final_dataset <- cbind(final_dataset, WhatsAppCall_data_occupation)
+# final_dataset <- cbind(final_dataset, WhatsAppFiles_data_occupation)
+# final_dataset <- cbind(final_dataset, Whois-DAS_data_occupation)
+# final_dataset <- cbind(final_dataset, Wikipedia_data_occupation)
+# final_dataset <- cbind(final_dataset, WindowsUpdate_data_occupation)
+# final_dataset <- cbind(final_dataset, Xbox_data_occupation)
+# final_dataset <- cbind(final_dataset, Yahoo_data_occupation)
+# final_dataset <- cbind(final_dataset, YouTube_data_occupation)
+# final_dataset <- cbind(final_dataset, Zoom_data_occupation)
 
 write.csv(final_dataset, "/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/Unicauca_Users-Consumption-dataset-April_June_2019.csv", row.names = FALSE, quote = FALSE, sep=",")
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------OBTAINING THE BEST NUMBER OF CLUSTERS------------------------------------------------------------------------------------------------------------------
+rm(summarized_dataset)
+test_data <- read.csv("/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/Final Dataset - Users Consumption 2019 - OTT apps Only/Unicauca_Users-Consumption-dataset-April_June_2019_OTTAppsOnly_Without_Network_IP.csv")
 
-test_data <- read.csv("/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/Final Dataset - Users Consumption 2019 - OTT apps Only/Unicauca_Users-Consumption-dataset-April_June_2019-OTT_Apps_Only.csv")
-
-final_dataset$src_ip <- NULL
-test_data$src_ip <- NULL
 test_data$src_ip_numeric <- NULL
 df_clusters <- scale(test_data)
-rm(df_clusters_noNA)
+rm(df_clusters)
 
 # Elbow method . Hierarchical Clustering
 fviz_nbclust(test_data, hcut, method = "wss", k.max = 20) +
