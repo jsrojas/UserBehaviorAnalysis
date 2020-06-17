@@ -1280,7 +1280,7 @@ write.csv(final_dataset, "/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/L
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #--------------------------------------OBTAINING THE BEST NUMBER OF CLUSTERS------------------------------------------------------------------------------------------------------------------
 rm(summarized_dataset)
-test_data <- read.csv("/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/Final Dataset - Users Consumption 2019 - OTT apps Only/Unicauca_Users-Consumption-dataset-April_June_2019_OTTAppsOnly_Without_Network_IP.csv")
+test_data <- read.csv("/home/jsrojas/Juan/Unicauca/Doctorado/PhD Internship/Labeled Dataset with FlowLabeler/Final Dataset - Users Consumption 2019 - OTT apps Only/Dataset with all attributes/Unicauca_Users-Consumption-dataset-April_June_2019-AllAttributes-OTTApps-WithoutNetworkIP.csv")
 
 test_data$src_ip_numeric <- NULL
 df_clusters <- scale(test_data)
